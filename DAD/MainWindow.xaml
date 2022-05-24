@@ -1,0 +1,36 @@
+﻿<Window x:Class="DAD.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DAD"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Menu>
+            <MenuItem
+    Header="Employee and Customer Management"
+    Background="{DynamicResource PrimaryHueMidBrush}"
+    Foreground="{DynamicResource PrimaryHueMidForegroundBrush}">
+                <MenuItem
+      Header="Add New Employee"
+      Background="{DynamicResource SecondaryHueMidBrush}"
+      Foreground="{DynamicResource SecondaryHueMidForegroundBrush}" Click="MenuItem_Click"/>
+                <MenuItem
+      Header="View and Update Customer"
+      Background="{DynamicResource SecondaryHueMidBrush}"
+      Foreground="{DynamicResource SecondaryHueMidForegroundBrush}" />
+                <MenuItem
+      Header="My Account"
+      Background="{DynamicResource SecondaryHueMidBrush}"
+      Foreground="{DynamicResource SecondaryHueMidForegroundBrush}" />
+            </MenuItem>
+
+        </Menu>
+        <StackPanel x:Name="mainPanel" Margin="20,8,20,20" Grid.Row="1" >
+
+
+        </StackPanel>
+
+    </Grid>
+</Window>
