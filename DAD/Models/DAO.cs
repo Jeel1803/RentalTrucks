@@ -1,4 +1,5 @@
 ﻿using DAD.Models.DB;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,27 @@ namespace DAD.Models
 {
     internal class DAO
     {
+        public static List<PersonInformation> getPeople()
+        {
+            using (DAD_JeelContext ctx = new DAD_JeelContext())
+            {
+                return ctx.TruckPeople.Select(p => new PersonInformation()
+                {
+                    PersonId = p.PersonId,
+                    Address = p.Address,
+                    Name = p.Name,
+                    Telephone = p.Telephone,
+                }).ToList(); 
+            }
+        }
+
+        public static List<TruckPerson> GetPersonID()
+        {
+            using (DAD_JeelContext ctx = new DAD_JeelContext())
+            {
+                return ctx.TruckPeople.ToList();
+            }
+        }
         private static bool containsUserName(string username)
         {
             using (DAD_JeelContext ctx = new DAD_JeelContext())
@@ -46,7 +68,6 @@ namespace DAD.Models
 
         public static int validEmptyInput(Grid data)
         {
-            string message = null;
             int count = 0;
             foreach (Control ctl in data.Children)
             {

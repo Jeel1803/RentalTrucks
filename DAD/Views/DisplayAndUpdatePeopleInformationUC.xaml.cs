@@ -24,27 +24,47 @@ namespace DAD.Views
         public DisplayAndUpdateCustomerInformationUC()
         {
             InitializeComponent();
+            searchCustomerButton.Visibility = Visibility.Hidden;
+            idComboBox.ItemsSource = DAO.GetPersonID();
+            idComboBox.DisplayMemberPath = "PersonId";
+            idComboBox.SelectedValuePath = "PersonId";
         }
 
        
 
         private void showAllCustomerButton_Click(object sender, RoutedEventArgs e)
         {
-
+            customerDataGrid.ItemsSource =  DAO.getPeople();
         }
 
         private void searchCustomerButton_Click(object sender, RoutedEventArgs e)
         {
-
-            int id = int.Parse(idTextBox.Text);
-            if (string.IsNullOrEmpty(idTextBox.Text))
+            int id = int.Parse(idComboBox.Text);
+            if (idComboBox.SelectedIndex == -1)
             {
-                MessageBox.Show("Please Enter the Person ID");
+                idComboBox.BorderBrush = Brushes.Red;
             }
             else
             {
-                customerDataGrid.ItemsSource = DAO.getPeople(id);
+                idComboBox.BorderBrush = Brushes.Black;
+                 customerDataGrid.ItemsSource = DAO.getPeople(id);
             }
+
+        }
+
+        private void idTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void ClearFilledComboBox_Click(object sender, RoutedEventArgs e)
+        {
+            idComboBox.SelectedIndex = -1;
+        }
+
+        private void FilledComboBoxEnabledCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            searchCustomerButton.Visibility = Visibility.Visible;
         }
     }
 }

@@ -8,20 +8,37 @@
              xmlns:local="clr-namespace:DAD.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid ShowGridLines="True" Background="Azure">
+    <Grid Name="formGrid" ShowGridLines="False" Width="auto" Height="auto" Margin="0 , 50 , 0, 0   " Background="Azure">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
         <materialDesign:Badged
   x:Name="CountingBadge"
-  BadgeColorZoneMode="PrimaryDark"/>
-        <DataGrid Grid.Row="1" x:Name="customerDataGrid"
+  BadgeColorZoneMode="PrimaryDark" HorizontalAlignment="Center" Height="0" Width="0"/>
+        <DataGrid Grid.Row="2" x:Name="customerDataGrid"
           CanUserAddRows="False"
           SelectionUnit="Cell"
           SelectionMode="Extended" />
-        <Button x:Name="showAllCustomerButton" Style="{StaticResource MaterialDesignRaisedLightButton}" Click="showAllCustomerButton_Click" Content="Show All" Margin="481,59,232,59" />
-        <TextBox x:Name="idTextBox" HorizontalAlignment="Left" Margin="274,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="searchCustomerButton" Style="{StaticResource MaterialDesignRaisedLightButton}" Click="searchCustomerButton_Click" Content="Show All" Margin="481,96,232,22" />
+
+        <StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <CheckBox x:Name="FilledComboBoxEnabledCheckBox" IsChecked="False" HorizontalAlignment="Left" Content="Enabled" Checked="FilledComboBoxEnabledCheckBox_Checked" />
+                <Button Content="Clear" Style="{StaticResource MaterialDesignFlatButton}" HorizontalAlignment="Right" Click="ClearFilledComboBox_Click"  Width="83" Grid.Column="0" />
+                <ComboBox x:Name="idComboBox" Grid.Row="1" Style="{StaticResource MaterialDesignFilledComboBox}" IsEnabled="{Binding IsChecked, ElementName=FilledComboBoxEnabledCheckBox}" materialDesign:HintAssist.Hint="Some item" Width="auto"/>
+
+                <Button x:Name="searchCustomerButton" Grid.Row="1" Grid.Column="1" Style="{StaticResource MaterialDesignRaisedLightButton}" Click="searchCustomerButton_Click" Content="Search"  Margin=" 40, 10"/>
+            </Grid>
+            <Button x:Name="showAllCustomerButton" Grid.Row="0"  Grid.Column="1" Style="{StaticResource MaterialDesignRaisedLightButton}" Click="showAllCustomerButton_Click" Content="Show All" Margin=" 200, 10"  />
+        </StackPanel>
+
     </Grid>
 </UserControl>
