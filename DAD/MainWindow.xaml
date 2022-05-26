@@ -16,6 +16,10 @@
       Header="Add New Employee"
       Background="{DynamicResource SecondaryHueMidBrush}"
       Foreground="{DynamicResource SecondaryHueMidForegroundBrush}" Click="MenuItem_Click"/>
+                <MenuItem Name="peopleInformation"
+      Header="View and Update People Information" 
+      Background="{DynamicResource SecondaryHueMidBrush}"
+      Foreground="{DynamicResource SecondaryHueMidForegroundBrush}" Click="peopleInformation_Click"/>
                 <MenuItem
       Header="View and Update Customer"
       Background="{DynamicResource SecondaryHueMidBrush}"

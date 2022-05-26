@@ -32,6 +32,12 @@ namespace DAD
             mainPanel.Children.Clear();
             mainPanel.Children.Add(new AddEmployeeUC());
         }
+
+        private void peopleInformation_Click(object sender, RoutedEventArgs e)
+        {
+            mainPanel.Children.Clear();
+            mainPanel.Children.Add(new DisplayAndUpdateCustomerInformationUC());
+        }
     }
 
    

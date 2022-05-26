@@ -68,5 +68,19 @@ namespace DAD.Models
             return count;
 
         }
+
+        public static List<PersonInformation> getPeople(int id)
+        {
+            using (DAD_JeelContext ctx = new DAD_JeelContext())
+            {
+                return ctx.TruckPeople.Where(bt => bt.PersonId == id).Select(p => new PersonInformation()
+                {
+                    PersonId = p.PersonId,
+                    Address = p.Address,
+                    Name = p.Name,
+                    Telephone = p.Telephone,
+                }).ToList();
+            }
+        }
     }
 }

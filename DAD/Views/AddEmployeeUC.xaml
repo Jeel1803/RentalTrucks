@@ -38,7 +38,7 @@
             <ComboBoxItem Content="Admin" />
         </ComboBox>
         <materialDesign:Badged  x:Name="addEmployeeeButton" BadgeColorZoneMode="PrimaryDark"/>
-        <Button x:Name="addEmployeeButton" Style="{StaticResource MaterialDesignRaisedLightButton}"  Content="Add Employee" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Margin="95,34,75,46" Grid.Row="5" Click="addEmployeeButton_Click" />
-        <Button x:Name="resetButton" Style="{StaticResource MaterialDesignRaisedLightButton}"  Content="Reset" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Margin="64,34,106,46" Grid.Row="5" Grid.Column="1" Click="resetButton_Click" />
+        <Button x:Name="addEmployeeButton" Style="{StaticResource MaterialDesignRaisedLightButton}"  Content="Add Employee" Margin="95,34,75,46" Grid.Row="5" Click="addEmployeeButton_Click" />
+        <Button x:Name="resetButton" Style="{StaticResource MaterialDesignRaisedLightButton}"  Content="Reset"  Margin="64,34,106,46" Grid.Row="5" Grid.Column="1" Click="resetButton_Click" />
     </Grid>
 </UserControl>
