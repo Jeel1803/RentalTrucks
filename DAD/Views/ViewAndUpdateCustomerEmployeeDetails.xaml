@@ -1,0 +1,73 @@
+﻿<UserControl x:Class="DAD.Views.ViewAndUpdateCustomerEmployeeDetails"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+             xmlns:local="clr-namespace:DAD.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="650.373" d:DesignWidth="800">
+    <Grid Name="formGrid" Width="auto" Height="600" Margin="0 , 50 , 0, 0   "  Background="Azure">
+        <StackPanel>
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Button  x:Name="employeeButton" Grid.Row="1" Grid.Column="0" Style="{StaticResource MaterialDesignRaisedLightButton}" Click="searchEmployeeButton_Click" Content="Employee"  Margin=" 20, 10"/>
+                <Button x:Name="customerButton" Grid.Row="1" Grid.Column="1" Style="{StaticResource MaterialDesignRaisedLightButton}" Click="searchCustomerButton_Click" Content="Customer"  Margin=" 20, 10"/>
+                <Button x:Name="searchAllCustomer" Grid.Row="1" Grid.Column="2" Style="{StaticResource MaterialDesignRaisedLightButton}" Click="searchAllCustomerButton_Click" Content="Show All Customer"  Margin=" 20, 10"/>
+                <Button x:Name="searchAllEmployee" Grid.Row="1" Grid.Column="3" Style="{StaticResource MaterialDesignRaisedLightButton}" Click="searchAllEmployeeButton_Click" Content="Show All Employee"  Margin=" 20, 10"/>
+
+            </Grid>
+        </StackPanel>
+        <StackPanel>
+            <Grid ShowGridLines="False" Margin="30,50,30,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+
+                </Grid.RowDefinitions>
+                <ComboBox x:Name="idComboBox" materialDesign:HintAssist.Hint="ID"  Margin="10,2" Style="{StaticResource MaterialDesignFilledComboBox}"  VerticalAlignment="Center" Grid.Column="0" Grid.Row="1"    />
+                <Button x:Name="searchIDButton" Grid.Row="2" Grid.Column="0" Style="{StaticResource MaterialDesignRaisedLightButton}" Click="SearchID_Click" Content="Search "  Margin=" 20, 10"/>
+                <TextBox x:Name="nameTextBox" materialDesign:HintAssist.Hint="Name"  Margin="10,2" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  VerticalAlignment="Center" Grid.Column="0" Grid.Row="3"    />
+                <TextBox x:Name="addressTextBox" materialDesign:HintAssist.Hint="Address" Margin="10,2" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center"  Grid.Column="0" Grid.Row="4"     />
+                <TextBox x:Name="telephoneTextBox" materialDesign:HintAssist.Hint="Telephone" Margin="10,2" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Grid.Column="0" Grid.Row="5"  />
+                <TextBox x:Name="officeAddressTextBox" materialDesign:HintAssist.Hint="Office Address" Margin="10,2" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Grid.Column="0" Grid.Row="6"    />
+                <TextBox x:Name="ageTextBox" materialDesign:HintAssist.Hint="Age" Margin="10,2" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Grid.Column="0" Grid.Row="6"    />
+                <TextBox x:Name="phoneExtTextBox" materialDesign:HintAssist.Hint="Phone Extension" Margin="10,2" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center"  Grid.Column="0" Grid.Row="7"   />
+                <TextBox x:Name="lcTextBox" materialDesign:HintAssist.Hint="License Number" Margin="10,2" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center"  Grid.Column="0" Grid.Row="7"   />
+                <TextBox x:Name="usernameTextBox" materialDesign:HintAssist.Hint="Username" Margin="10,2" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Grid.Column="0" Grid.Row="8" />
+                <TextBox x:Name="expiryTextBox" materialDesign:HintAssist.Hint="License Expiry Date" Margin="10,2" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Grid.Column="0" Grid.Row="8" />
+                <TextBox x:Name="passwordTextBox" materialDesign:HintAssist.Hint="Password" Margin="10,2" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center"  Grid.Column="0" Grid.Row="9"   />
+                <ComboBox x:Name="roleComboBox" materialDesign:HintAssist.Hint="Role"  Style="{StaticResource MaterialDesignFilledComboBox}" Margin="10,2"  VerticalAlignment="Center" Grid.Column="0" Grid.Row="10" />
+                <Button x:Name="updateButoon" Grid.Row="11" Grid.Column="0" Style="{StaticResource MaterialDesignRaisedLightButton}" Click="updateButoon_Click" Content="Update Record"  Margin=" 20, 10"/>
+
+                <DataGrid x:Name="detailsDataGrid" CanUserAddRows="False" SelectionUnit="Cell" Margin="10,2,10,0" Grid.Column="1" Grid.Row="2" SelectionMode="Extended" Grid.RowSpan="8" />
+            </Grid>
+        </StackPanel>
+
+
+    </Grid>
+</UserControl>

@@ -12,6 +12,14 @@ namespace DAD.Models
 {
     internal class DAO
     {
+        public static TruckPerson searchEmployeeByID(int id)
+        {
+            using (DAD_JeelContext ctx = new DAD_JeelContext())
+            {
+                return ctx.TruckPeople.Include(p => p.TruckEmployee).Where(em => em.PersonId == id).FirstOrDefault();
+            }
+        }
+
         public static List<PersonInformation> getPeople()
         {
             using (DAD_JeelContext ctx = new DAD_JeelContext())
@@ -23,6 +31,42 @@ namespace DAD.Models
                     Name = p.Name,
                     Telephone = p.Telephone,
                 }).ToList(); 
+            }
+        }
+        public static List<EmployeeDetails> GetEmployee()
+        {
+            using (DAD_JeelContext ctx = new DAD_JeelContext())
+            {
+                return ctx.TruckEmployees.Include(em => em.Employee).Select(p => new EmployeeDetails()
+                {
+                    Name = p.Employee.Name,
+                    Telephone = p.Employee.Telephone,
+                    Address = p.Employee.Address,
+                    PersonId = p.Employee.PersonId,
+                    Username = p.Username,
+                    Password = p.Password,
+                    OfficeAddress = p.OfficeAddress,
+                    Role = p.Role,
+                    PhoneExtensionNumber = p.PhoneExtensionNumber,
+
+                }).ToList();
+            }
+        }
+        public static List<CustomerDetails> GetCustomer()
+        {
+            using (DAD_JeelContext ctx = new DAD_JeelContext())
+            {
+                return ctx.TruckCustomers.Include(c => c.Customer).Select(p => new CustomerDetails()
+                {
+                    Name = p.Customer.Name,
+                    Telephone = p.Customer.Telephone,
+                    Address = p.Customer.Address,
+                    PersonId = p.Customer.PersonId,
+                    Age = p.Age,
+                    CustomerId = p.CustomerId,
+                    LicenseExpiryDate = p.LicenseExpiryDate,
+                    LicenseNumber = p.LicenseNumber,
+                }).ToList();
             }
         }
 

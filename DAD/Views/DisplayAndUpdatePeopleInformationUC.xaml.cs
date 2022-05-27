@@ -28,6 +28,9 @@ namespace DAD.Views
             idComboBox.ItemsSource = DAO.GetPersonID();
             idComboBox.DisplayMemberPath = "PersonId";
             idComboBox.SelectedValuePath = "PersonId";
+
+            customerDataGrid.BorderBrush = new SolidColorBrush(Colors.White);
+            customerDataGrid.BorderThickness = new Thickness(1,1, 1, 1);
         }
 
        

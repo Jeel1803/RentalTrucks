@@ -16,10 +16,19 @@
         <materialDesign:Badged
   x:Name="CountingBadge"
   BadgeColorZoneMode="PrimaryDark" HorizontalAlignment="Center" Height="0" Width="0"/>
-        <DataGrid Grid.Row="2" x:Name="customerDataGrid"
+        <DataGrid Grid.Row="2" BorderThickness="1" x:Name="customerDataGrid" 
           CanUserAddRows="False"
+                  
           SelectionUnit="Cell"
-          SelectionMode="Extended" />
+          SelectionMode="Extended" >
+            <DataGrid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Aqua"/>
+                    
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </DataGrid.Background>
+        </DataGrid>
 
         <StackPanel>
             <Grid>

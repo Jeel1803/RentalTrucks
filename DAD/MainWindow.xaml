@@ -17,13 +17,13 @@
       Background="{DynamicResource SecondaryHueMidBrush}"
       Foreground="{DynamicResource SecondaryHueMidForegroundBrush}" Click="MenuItem_Click"/>
                 <MenuItem Name="peopleInformation"
-      Header="View and Update People Information" 
+      Header="View and Update People Information"
       Background="{DynamicResource SecondaryHueMidBrush}"
       Foreground="{DynamicResource SecondaryHueMidForegroundBrush}" Click="peopleInformation_Click"/>
-                <MenuItem
+                <MenuItem  Name="viewAndUpdateCustomerEmployee" 
       Header="View and Update Customer"
       Background="{DynamicResource SecondaryHueMidBrush}"
-      Foreground="{DynamicResource SecondaryHueMidForegroundBrush}" />
+      Foreground="{DynamicResource SecondaryHueMidForegroundBrush}" Click="viewAndUpdateCustomerEmployee_Click" />
                 <MenuItem
       Header="My Account"
       Background="{DynamicResource SecondaryHueMidBrush}"
