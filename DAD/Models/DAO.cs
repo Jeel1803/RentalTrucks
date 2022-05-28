@@ -12,6 +12,13 @@ namespace DAD.Models
 {
     internal class DAO
     {
+        public static TruckPerson searchCustomerByID(int id)
+        {
+            using (DAD_JeelContext ctx = new DAD_JeelContext())
+            {
+                return ctx.TruckPeople.Include(p => p.TruckCustomer).Where(em => em.PersonId == id).FirstOrDefault();
+            }
+        }
         public static TruckPerson searchEmployeeByID(int id)
         {
             using (DAD_JeelContext ctx = new DAD_JeelContext())
@@ -132,6 +139,24 @@ namespace DAD.Models
             }
             return count;
 
+        }
+
+        public static int comboBox(Grid data)
+        {
+            int a = 0;
+            foreach (Control ctl in data.Children)
+            {
+                if (ctl.GetType() == typeof(ComboBox))
+                {
+                    ComboBox cb = (ComboBox)ctl;
+                    if(cb.SelectedIndex == -1)
+                    {
+                        cb.BorderBrush = Brushes.Red;
+                        a = 1;
+                    }
+                }
+            }
+            return a;
         }
 
         public static List<PersonInformation> getPeople(int id)

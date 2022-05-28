@@ -23,6 +23,7 @@ namespace DAD.Views
     public partial class ViewAndUpdateCustomerEmployeeDetails : UserControl
     {
         int count;
+       
         public ViewAndUpdateCustomerEmployeeDetails()
         {
             InitializeComponent();
@@ -144,44 +145,85 @@ namespace DAD.Views
         private void searchAllCustomerButton_Click(object sender, RoutedEventArgs e)
         {
             detailsDataGrid.ItemsSource = DAO.GetCustomer();
+            int id = int.Parse(idComboBox.ToString());
+            
 
         }
 
         private void searchAllEmployeeButton_Click(object sender, RoutedEventArgs e)
         {
             detailsDataGrid.ItemsSource = DAO.GetEmployee();
+            
         }
 
         private void updateButoon_Click(object sender, RoutedEventArgs e)
         {
-            int id = int.Parse(idComboBox.ToString());
-            TruckPerson p = DAO.searchEmployeeByID(id);
-            if(p != null)
-            {
-                p.Address = addressTextBox.Text;
-                p.Telephone = telephoneTextBox.Text;
-                p.Name = nameTextBox.Text;
-                p.TruckEmployee.PhoneExtensionNumber = phoneExtTextBox.Text;
-                p.TruckEmployee.Username = usernameTextBox.Text;
-                p.TruckEmployee.Password = passwordTextBox.Text;
-                p.TruckEmployee.OfficeAddress = officeAddressTextBox.Text;
-                p.TruckEmployee.Role = roleComboBox.Text;
-            }
+
         }
+        
 
         private void SearchID_Click(object sender, RoutedEventArgs e)
         {
-            updateButoon.Visibility = Visibility.Visible;
-            isVisibleCommonFields(true);
+            
+           
             if(count == 1)
             {
-                isVisibleEmployeeFields(true);
-                isVisibleCustomerFields(false);
+                
+                if (idComboBox.SelectedIndex == -1)
+                {
+                    idComboBox.BorderBrush = Brushes.Red;
+                }
+                else
+                {
+                    int id = int.Parse(idComboBox.Text);
+                    idComboBox.BorderBrush = Brushes.Black;
+                    TruckPerson p = DAO.searchEmployeeByID(id);
+                    if (p != null)
+                    {
+                        addressTextBox.Text = p.Address;
+                        telephoneTextBox.Text = p.Telephone;
+                        nameTextBox.Text = p.Name;
+                        phoneExtTextBox.Text = p.TruckEmployee.PhoneExtensionNumber;
+                        usernameTextBox.Text = p.TruckEmployee.Username;
+                        passwordTextBox.Text = p.TruckEmployee.Password;
+                        officeAddressTextBox.Text = p.TruckEmployee.OfficeAddress;
+                        roleComboBox.SelectedIndex = p.TruckEmployee.Role.IndexOf(p.TruckEmployee.Role);
+
+
+                        isVisibleCommonFields(true);
+                        isVisibleEmployeeFields(true);
+                        isVisibleCustomerFields(false);
+                        updateButoon.Visibility = Visibility.Visible;
+                    }
+                }
+               
             }
             else
             {
-                isVisibleEmployeeFields(false);
-                isVisibleCustomerFields(true);
+                if (idComboBox.SelectedIndex == -1)
+                {
+                    idComboBox.BorderBrush = Brushes.Red;
+                }
+                else
+                {
+                    int id = int.Parse(idComboBox.Text);
+                    idComboBox.BorderBrush = Brushes.Black;
+                    TruckPerson p = DAO.searchCustomerByID(id);
+                    if (p != null)
+                    {
+                        addressTextBox.Text = p.Address;
+                        telephoneTextBox.Text = p.Telephone;
+                        nameTextBox.Text = p.Name;
+                        //int.Parse(ageTextBox.Text) = p.TruckCustomer.Age;
+                        lcTextBox.Text = p.TruckCustomer.LicenseNumber;
+                        //DateTime.Parse(expiryTextBox.Text) = p.TruckCustomer.LicenseExpiryDate;
+
+                        isVisibleCommonFields(true);
+                        isVisibleEmployeeFields(false);
+                        isVisibleCustomerFields(true);
+                    }
+                }
+               
             }
         }
     }
