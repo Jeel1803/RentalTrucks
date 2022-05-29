@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Menu>
+        <Menu >
             <MenuItem
     Header="Employee and Customer Management"
     Background="{DynamicResource PrimaryHueMidBrush}"
-    Foreground="{DynamicResource PrimaryHueMidForegroundBrush}">
+    Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" Width="800" >
                 <MenuItem
       Header="Add New Employee"
       Background="{DynamicResource SecondaryHueMidBrush}"
@@ -25,13 +25,18 @@
       Background="{DynamicResource SecondaryHueMidBrush}"
       Foreground="{DynamicResource SecondaryHueMidForegroundBrush}" Click="viewAndUpdateCustomerEmployee_Click" />
                 <MenuItem
-      Header="My Account"
+      Header="My Account" x:Name="perosnalDetails"
       Background="{DynamicResource SecondaryHueMidBrush}"
-      Foreground="{DynamicResource SecondaryHueMidForegroundBrush}" />
+      Foreground="{DynamicResource SecondaryHueMidForegroundBrush}" Click="perosnalDetails_Click" />
+                <MenuItem
+      Header="Login" x:Name="login"
+      Background="{DynamicResource SecondaryHueMidBrush}"
+      Foreground="{DynamicResource SecondaryHueMidForegroundBrush}" Click="login_Click" />
             </MenuItem>
-
         </Menu>
-        <StackPanel x:Name="mainPanel" Margin="20,8,20,20" Grid.Row="1" >
+      
+        <StackPanel x:Name="mainPanel" Margin="40,307,20,20" >
+            <Button x:Name="ShowButton" Content="Show" Width="156" Click="ShowButton_Click"/>
 
 
         </StackPanel>

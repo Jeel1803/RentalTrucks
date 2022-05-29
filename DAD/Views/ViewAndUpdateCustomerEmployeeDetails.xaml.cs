@@ -119,14 +119,12 @@ namespace DAD.Views
         }
 
 
-                private void searchEmployeeButton_Click(object sender, RoutedEventArgs e)
+        private void searchEmployeeButton_Click(object sender, RoutedEventArgs e)
         {
             isVisibleIDInputs(true);
             count = 1;
             isVisibleCustomerFields(false);
             isVisibleCommonFields(false);
-
-
         }
 
         private void searchCustomerButton_Click(object sender, RoutedEventArgs e)
@@ -136,8 +134,6 @@ namespace DAD.Views
             isVisibleEmployeeFields(false);
             isVisibleCommonFields(false);
 
-
-
         }
 
 
@@ -146,14 +142,11 @@ namespace DAD.Views
         {
             detailsDataGrid.ItemsSource = DAO.GetCustomer();
             int id = int.Parse(idComboBox.ToString());
-            
-
         }
 
         private void searchAllEmployeeButton_Click(object sender, RoutedEventArgs e)
         {
-            detailsDataGrid.ItemsSource = DAO.GetEmployee();
-            
+            detailsDataGrid.ItemsSource = DAO.GetEmployee();    
         }
 
         private void updateButoon_Click(object sender, RoutedEventArgs e)

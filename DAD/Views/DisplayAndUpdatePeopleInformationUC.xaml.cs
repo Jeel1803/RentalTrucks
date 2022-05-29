@@ -55,10 +55,7 @@ namespace DAD.Views
 
         }
 
-        private void idTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
+        
 
         private void ClearFilledComboBox_Click(object sender, RoutedEventArgs e)
         {

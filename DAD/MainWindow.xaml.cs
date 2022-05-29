@@ -44,6 +44,30 @@ namespace DAD
             mainPanel.Children.Clear();
             mainPanel.Children.Add(new ViewAndUpdateCustomerEmployeeDetails());
         }
+
+        private void perosnalDetails_Click(object sender, RoutedEventArgs e)
+        {
+            mainPanel.Children.Clear();
+            mainPanel.Children.Add(new ViewPersonalDetailsUC());
+        
+    }
+
+        private void login_Click(object sender, RoutedEventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Hide();
+
+        }
+
+        private void ShowButton_Click(object sender, RoutedEventArgs e)
+        {
+            Details d = new Details();
+            d.Show();
+            this.Hide();
+        }
+
+        
     }
 
    

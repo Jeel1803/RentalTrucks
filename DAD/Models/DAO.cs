@@ -12,6 +12,61 @@ namespace DAD.Models
 {
     internal class DAO
     {
+        public static List<EmployeeDetails> fetchPersonalInfo()
+        {
+            using (DAD_JeelContext ctx = new DAD_JeelContext())
+            {
+
+                return ctx.TruckPeople.Include(bt => bt.TruckEmployee).Where(em => em.TruckEmployee.Username == username).Select(
+                    bc => new EmployeeDetails()
+                    {
+                        PersonId = bc.PersonId,
+                        EmployeeId = bc.TruckEmployee.EmployeeId,
+                        Name = bc.Name,
+                        Address = bc.Address,
+                        Telephone = bc.Telephone,
+                        OfficeAddress = bc.TruckEmployee.OfficeAddress,
+                        PhoneExtensionNumber = bc.TruckEmployee.PhoneExtensionNumber,
+                        Username = bc.TruckEmployee.Username,
+                        Password = bc.TruckEmployee.Password,
+                        Role = bc.TruckEmployee.Role,
+                    }).ToList();
+
+
+            }
+        }
+
+        public static void login(TruckEmployee truckEmployee)
+        {
+            using (DAD_JeelContext ctx = new DAD_JeelContext())
+            {
+                if (validUser(truckEmployee.Username, truckEmployee.Password))
+                {
+                    username = truckEmployee.Username;
+                }
+                else
+                {
+                    throw new Exception("Please enter correct username and password");
+                }
+            }
+        }
+
+        public static bool validUser(string username, string password)
+        {
+            using (DAD_JeelContext ctx = new DAD_JeelContext())
+            {
+                TruckEmployee employee = ctx.TruckEmployees.Where(em => em.Username == username).Where(ps => ps.Password == password).FirstOrDefault();
+                if (employee == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+
+            }
+        }
         public static TruckPerson searchCustomerByID(int id)
         {
             using (DAD_JeelContext ctx = new DAD_JeelContext())
