@@ -6,12 +6,10 @@
              mc:Ignorable="d"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
              xmlns:local="clr-namespace:DAD"
-             xmlns:sys="clr-namespace:System;assembly=mscorlib"
-
              d:DesignHeight="450" d:DesignWidth="800">
 
     
-    <Grid Name="formGrid" Width="auto" Height="auto" Margin="0 , 50 , 0, 0   "  Background="Azure">
+    <Grid Width="auto" Height="auto" Margin="0 , 50 , 0, 0   "  Background="Azure">
         <StackPanel >
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -22,7 +20,7 @@
         </StackPanel>
 
         <StackPanel>
-            <Grid Margin='0,50 , 0, 0'>      
+            <Grid Name="formGrid" Margin='0,50 , 0, 0'>      
                 <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*" />
@@ -48,8 +46,8 @@
             <ComboBoxItem Content="Admin" />
         </ComboBox>
         <materialDesign:Badged  x:Name="addEmployeeeButton" BadgeColorZoneMode="PrimaryDark"/>
-        <Button x:Name="addEmployeeButton" Style="{StaticResource MaterialDesignRaisedLightButton}"  Content="Add Employee" Margin="95,34,75,46" Grid.Row="5" Click="addEmployeeButton_Click" />
-        <Button x:Name="resetButton" Style="{StaticResource MaterialDesignRaisedLightButton}"  Content="Reset"  Margin="64,34,106,46" Grid.Row="5" Grid.Column="1" Click="resetButton_Click" />
+        <Button MaxWidth="400" x:Name="addEmployeeButton" Style="{StaticResource MaterialDesignRaisedLightButton}"  Content="Add Employee" Margin="95,34,75,46" Grid.Row="5" Click="addEmployeeButton_Click" />
+                <Button MaxWidth="400" x:Name="resetButton" Style="{StaticResource MaterialDesignRaisedLightButton}"  Content="Reset"  Margin="64,34,106,46" Grid.Row="5" Grid.Column="1" Click="resetButton_Click" />
             </Grid>
 
         </StackPanel>

@@ -62,9 +62,7 @@ namespace DAD
 
         private void ShowButton_Click(object sender, RoutedEventArgs e)
         {
-            Details d = new Details();
-            d.Show();
-            this.Hide();
+          
         }
 
         

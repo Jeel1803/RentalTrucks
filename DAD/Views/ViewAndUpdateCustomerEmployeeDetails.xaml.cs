@@ -23,7 +23,7 @@ namespace DAD.Views
     public partial class ViewAndUpdateCustomerEmployeeDetails : UserControl
     {
         int count;
-        EmployeeDetails ed = new EmployeeDetails();
+        TruckEmployee ed = new TruckEmployee();
 
         public ViewAndUpdateCustomerEmployeeDetails()
         {
@@ -142,7 +142,6 @@ namespace DAD.Views
         private void searchAllCustomerButton_Click(object sender, RoutedEventArgs e)
         {
             detailsDataGrid.ItemsSource = DAO.GetCustomer();
-            int id = int.Parse(idComboBox.ToString());
         }
 
         private void searchAllEmployeeButton_Click(object sender, RoutedEventArgs e)
@@ -152,8 +151,8 @@ namespace DAD.Views
 
         private void updateButoon_Click(object sender, RoutedEventArgs e)
         {
-
-            //Customer part is still remaining
+            int id = int.Parse(idComboBox.Text);
+            ed = DAO.searchPEmployeeByID(id);
             string name = nameTextBox.Text;
             string address = addressTextBox.Text;
             string telephone = telephoneTextBox.Text;
@@ -162,18 +161,21 @@ namespace DAD.Views
             string username = usernameTextBox.Text;
             string password = passwordTextBox.Text;
             string role = roleComboBox.Text;
+            //Customer part is still remaining
+            if (ed != null)
+            {       
+               ed.Employee.Name= name;
+               ed.Employee.Address = address;
+               ed.Employee.Telephone = telephone;
+               ed.OfficeAddress = officeAddress;
+               ed.PhoneExtensionNumber = phoneExt;
+               ed.Password = password;
+               DAO.updateEmployeeRecord(ed);
+               MessageBox.Show("Updated Successfully");
+               roleComboBox.SelectedIndex = -1;
 
-            ed.Name = name;
-            ed.Address = address;
-            ed.Telephone = telephone;
-            ed.OfficeAddress = officeAddress;
-            ed.PhoneExtensionNumber = phoneExt;
-            ed.Password = password;
-            List<EmployeeDetails> emp = new();
-            emp.Add(ed);
-            DAO.updatePesonal(emp);
-            MessageBox.Show("Updated Successfully");
-
+            }
+            
 
         }
         
@@ -242,5 +244,7 @@ namespace DAD.Views
                
             }
         }
+
+        
     }
 }
