@@ -28,6 +28,7 @@ namespace DAD.Views
         {
             InitializeComponent();
 
+            isEditable(false);
             ed = DAO.fetchPersonalInfo().FirstOrDefault();
 
             nameTextBox.Text = ed.Name;
@@ -41,6 +42,62 @@ namespace DAD.Views
 
 
 
+        }
+
+        private void isEditable(bool v)
+        {
+            if (v)
+            {
+                nameTextBox.IsEnabled = true;
+                addressTextBox.IsEnabled = true;
+                telephoneTextBox.IsEnabled = true;
+                officeAddressTextBox.IsEnabled = true;
+                phoneExtTextBox.IsEnabled = true;
+                usernameTextBox.IsEnabled = true;
+                passwordTextBox.IsEnabled = true;
+                roleComboBox.IsEnabled = false;
+
+            }
+            else
+            {
+                nameTextBox.IsEnabled = false;
+                addressTextBox.IsEnabled = false;
+                telephoneTextBox.IsEnabled = false;
+                officeAddressTextBox.IsEnabled = false;
+                phoneExtTextBox.IsEnabled = false;
+                usernameTextBox.IsEnabled = false;
+                passwordTextBox.IsEnabled = false;
+                roleComboBox.IsEnabled = false;
+            }
+        }
+
+        private void FilledComboBoxEnabledCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            isEditable(true);
+        }
+
+        private void updateButton_Click(object sender, RoutedEventArgs e)
+        {
+            string name = nameTextBox.Text;
+            string address = addressTextBox.Text;
+            string telephone = telephoneTextBox.Text;
+            string officeAddress = officeAddressTextBox.Text;
+            string phoneExt = phoneExtTextBox.Text;
+            string username = usernameTextBox.Text;
+            string password = passwordTextBox.Text;
+            string role = roleComboBox.Text;
+
+
+            ed.Name = name;
+            ed.Address = address;
+            ed.Telephone = telephone;
+            ed.OfficeAddress = officeAddress;
+            ed.PhoneExtensionNumber = phoneExt;
+            ed.Password = password;
+            List<EmployeeDetails> emp = new();
+            emp.Add(ed);
+            DAO.updatePesonal(emp);
+            MessageBox.Show("Updated Successfully");
         }
     }
 }

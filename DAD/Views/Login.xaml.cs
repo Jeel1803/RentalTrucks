@@ -50,8 +50,7 @@ namespace DAD.Views
                     DAO.login(truckEmployee);
                     MainWindow mainWindow = new MainWindow();
                     mainWindow.Show();
-
-
+                    this.Hide();
                     MessageBox.Show("Welcome");
                 }
                 catch (Exception ex)

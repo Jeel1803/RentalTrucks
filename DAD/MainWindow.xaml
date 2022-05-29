@@ -11,7 +11,7 @@
             <MenuItem
     Header="Employee and Customer Management"
     Background="{DynamicResource PrimaryHueMidBrush}"
-    Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" Width="800" >
+    Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" >
                 <MenuItem
       Header="Add New Employee"
       Background="{DynamicResource SecondaryHueMidBrush}"
@@ -34,9 +34,8 @@
       Foreground="{DynamicResource SecondaryHueMidForegroundBrush}" Click="login_Click" />
             </MenuItem>
         </Menu>
-      
-        <StackPanel x:Name="mainPanel" Margin="40,307,20,20" >
-            <Button x:Name="ShowButton" Content="Show" Width="156" Click="ShowButton_Click"/>
+
+        <StackPanel x:Name="mainPanel" Margin="20,8,20,20" Grid.Row="1">
 
 
         </StackPanel>

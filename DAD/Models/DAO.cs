@@ -12,6 +12,26 @@ namespace DAD.Models
 {
     internal class DAO
     {
+        public static void updatePesonal(List<EmployeeDetails> data)
+        {
+            using (DAD_JeelContext ctx = new DAD_JeelContext())
+            {
+                foreach (EmployeeDetails bc in data)
+                {
+                    TruckPerson p = ctx.TruckPeople.Include(bt => bt.TruckEmployee).Where(b => b.TruckEmployee.Username == username).FirstOrDefault();
+                    p.Address = bc.Address;
+                    p.Telephone = bc.Telephone;
+                    p.Name = bc.Name;
+                    p.TruckEmployee.OfficeAddress = bc.OfficeAddress;
+                    p.TruckEmployee.PhoneExtensionNumber = bc.PhoneExtensionNumber;
+                    p.TruckEmployee.Password = bc.Password;
+                    ctx.Entry(p).State = EntityState.Modified;
+                    ctx.Entry(p.TruckEmployee).State = EntityState.Modified;
+                    ctx.SaveChanges();
+                }
+            }
+        }
+
         public static List<EmployeeDetails> fetchPersonalInfo()
         {
             using (DAD_JeelContext ctx = new DAD_JeelContext())

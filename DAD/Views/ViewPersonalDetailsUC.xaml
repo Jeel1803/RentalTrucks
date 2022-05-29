@@ -19,18 +19,21 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
 
         <!--<TextBlock Text="Add New Emplopyee Form"  VerticalAlignment="Center" FontSize="18" Margin="0,0,130,0" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="389"  />-->
-        <TextBox x:Name="nameTextBox" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="0" Grid.Row="1" materialDesign:HintAssist.Hint="Name" Margin="10,10,10,17"/>
-        <TextBox x:Name="addressTextBox" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="0" Grid.Row="2" materialDesign:HintAssist.Hint="Address"   Margin="10,10,10,17"/>
-        <TextBox x:Name="telephoneTextBox" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="0" Grid.Row="3" materialDesign:HintAssist.Hint="Telephone"  Margin="10,10,10,17"/>
-        <TextBox x:Name="officeAddressTextBox" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="0" Grid.Row="4" materialDesign:HintAssist.Hint="Office Address"  Margin="10,10,10,18"/>
-        <TextBox x:Name="phoneExtTextBox" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="1" Grid.Row="1" materialDesign:HintAssist.Hint="Phone Extension"  Margin="10,10,10,17"/>
-        <TextBox x:Name="usernameTextBox" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="1" Grid.Row="2" materialDesign:HintAssist.Hint="Username"  Margin="10,10,10,17"/>
-        <TextBox x:Name="passwordTextBox" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="1" Grid.Row="3" materialDesign:HintAssist.Hint="Password"  Margin="10,10,10,17"/>
-        <ComboBox x:Name="roleComboBox" Style="{StaticResource MaterialDesignFilledComboBox}" materialDesign:HintAssist.Hint="Role" Grid.Row="4" Grid.Column="1" Margin="10,10,10,18">
+        <CheckBox x:Name="FilledComboBoxEnabledCheckBox" IsChecked="False" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="1" Content="Enabled" Checked="FilledComboBoxEnabledCheckBox_Checked" />
+        <TextBox x:Name="nameTextBox" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="0" Grid.Row="2" materialDesign:HintAssist.Hint="Name" Margin="10,10,10,17"/>
+        <TextBox x:Name="addressTextBox" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="0" Grid.Row="3" materialDesign:HintAssist.Hint="Address"   Margin="10,10,10,17"/>
+        <TextBox x:Name="telephoneTextBox" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="0" Grid.Row="4" materialDesign:HintAssist.Hint="Telephone"  Margin="10,10,10,17"/>
+        <TextBox x:Name="officeAddressTextBox" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="0" Grid.Row="5" materialDesign:HintAssist.Hint="Office Address"  Margin="10,10,10,18"/>
+        <Button x:Name="updateButton"  Style="{StaticResource MaterialDesignRaisedLightButton}" Grid.Row="1" Grid.Column="1" Click="updateButton_Click" Content="Update Record"  Margin=" 40, 10"/>
+        <TextBox x:Name="phoneExtTextBox" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="1" Grid.Row="2" materialDesign:HintAssist.Hint="Phone Extension"  Margin="10,10,10,17"/>
+        <TextBox x:Name="usernameTextBox" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="1" Grid.Row="3" materialDesign:HintAssist.Hint="Username"  Margin="10,10,10,17"/>
+        <TextBox x:Name="passwordTextBox" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="1" Grid.Row="4" materialDesign:HintAssist.Hint="Password"  Margin="10,10,10,17"/>
+        <ComboBox x:Name="roleComboBox" Style="{StaticResource MaterialDesignFilledComboBox}" materialDesign:HintAssist.Hint="Role" Grid.Row="5" Grid.Column="1" Margin="10,10,10,18">
             <ComboBoxItem Content="Staff" IsSelected="True"/>
             <ComboBoxItem Content="Admin" />
         </ComboBox>

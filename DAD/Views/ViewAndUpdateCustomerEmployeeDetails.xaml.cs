@@ -23,11 +23,12 @@ namespace DAD.Views
     public partial class ViewAndUpdateCustomerEmployeeDetails : UserControl
     {
         int count;
-       
+        EmployeeDetails ed = new EmployeeDetails();
+
         public ViewAndUpdateCustomerEmployeeDetails()
         {
             InitializeComponent();
-            
+
             idComboBox.ItemsSource = DAO.GetPersonID();
             idComboBox.DisplayMemberPath = "PersonId";
             idComboBox.SelectedValuePath = "PersonId";
@@ -151,6 +152,28 @@ namespace DAD.Views
 
         private void updateButoon_Click(object sender, RoutedEventArgs e)
         {
+
+            //Customer part is still remaining
+            string name = nameTextBox.Text;
+            string address = addressTextBox.Text;
+            string telephone = telephoneTextBox.Text;
+            string officeAddress = officeAddressTextBox.Text;
+            string phoneExt = phoneExtTextBox.Text;
+            string username = usernameTextBox.Text;
+            string password = passwordTextBox.Text;
+            string role = roleComboBox.Text;
+
+            ed.Name = name;
+            ed.Address = address;
+            ed.Telephone = telephone;
+            ed.OfficeAddress = officeAddress;
+            ed.PhoneExtensionNumber = phoneExt;
+            ed.Password = password;
+            List<EmployeeDetails> emp = new();
+            emp.Add(ed);
+            DAO.updatePesonal(emp);
+            MessageBox.Show("Updated Successfully");
+
 
         }
         
