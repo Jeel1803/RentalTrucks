@@ -8,8 +8,18 @@
              mc:Ignorable="d" 
              d:DesignHeight="650.373" d:DesignWidth="800">
     <Grid Name="formGrid" Width="auto" Height="600" Margin="0 , 50 , 0, 0   "  Background="Azure">
+        <StackPanel >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Display People Information"  VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Width="auto"  />
+            </Grid >
+        </StackPanel>
+
         <StackPanel>
-            <Grid >
+
+            <Grid Margin='0,50 , 0, 0'>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -65,9 +75,9 @@
                     <ComboBoxItem Content="Staff" IsSelected="True"/>
                     <ComboBoxItem Content="Admin" />
                 </ComboBox>
-                <Button   x:Name="updateButoon" Grid.Row="11" Grid.Column="0" Style="{StaticResource MaterialDesignRaisedLightButton}" Click="updateButoon_Click" Content="Update Record"  Margin=" 20, 10"/>
-
-                <DataGrid x:Name="detailsDataGrid" CanUserAddRows="False" SelectionUnit="Cell" Margin="10,2,10,0" Grid.Column="1" Grid.Row="2" SelectionMode="Extended" Grid.RowSpan="8" />
+                <Button x:Name="updateButoon" Grid.Row="11" Grid.Column="0" Style="{StaticResource MaterialDesignRaisedLightButton}" Click="updateButoon_Click" Content="Update Record"  Margin=" 20, 10"/>
+                <!-- simplest form -->
+                <DataGrid x:Name="detailsDataGrid" CanUserAddRows="False" SelectionUnit="Cell" Margin="10,2,10,52" Grid.Column="1" Grid.Row="2" SelectionMode="Extended" Grid.RowSpan="10" />
             </Grid>
         </StackPanel>
 

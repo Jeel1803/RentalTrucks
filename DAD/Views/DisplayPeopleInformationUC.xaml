@@ -9,6 +9,16 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Name="formGrid" ShowGridLines="False" Width="auto" Height="auto" Margin="0 , 50 , 0, 0   " Background="Azure">
+        <StackPanel >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Search And Update Information"  VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Width="auto"  />
+            </Grid >
+        </StackPanel>
+        <StackPanel>
+            <Grid Margin='0,50 , 0, 0'>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="2*"/>
@@ -16,7 +26,7 @@
         <materialDesign:Badged
   x:Name="CountingBadge"
   BadgeColorZoneMode="PrimaryDark" HorizontalAlignment="Center" Height="0" Width="0"/>
-        <DataGrid Grid.Row="2" BorderThickness="1" x:Name="customerDataGrid" 
+                <DataGrid Margin='0,150 , 0, 0' Grid.Row="2" BorderThickness="1" x:Name="customerDataGrid" 
           CanUserAddRows="False"
                   
           SelectionUnit="Cell"
@@ -29,9 +39,11 @@
                 </LinearGradientBrush>
             </DataGrid.Background>
         </DataGrid>
+            </Grid>
+        </StackPanel>
 
         <StackPanel>
-            <Grid>
+            <Grid Margin='0,50 , 0, 0'>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
