@@ -8,7 +8,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="650.373" d:DesignWidth="800"
              >
-    <Grid Name="formGrid" Width="auto" Height="600" Margin="0 , 50 , 0, 0   "  Background="Azure">
+    <Grid  Width="auto" Height="600" Margin="0 , 50 , 0, 0   "  Background="Azure">
         <StackPanel >
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -39,7 +39,7 @@
             </Grid>
         </StackPanel>
         <StackPanel>
-            <Grid ShowGridLines="False" Margin="30,100,30,10">
+            <Grid Name="formGrid" ShowGridLines="False" Margin="30,100,30,10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
@@ -66,11 +66,11 @@
                 <TextBox x:Name="addressTextBox" materialDesign:HintAssist.Hint="Address" Margin="10,2" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center"  Grid.Column="0" Grid.Row="4"     />
                 <TextBox x:Name="telephoneTextBox" materialDesign:HintAssist.Hint="Telephone" Margin="10,2" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Grid.Column="0" Grid.Row="5"  />
                 <TextBox x:Name="officeAddressTextBox" materialDesign:HintAssist.Hint="Office Address" Margin="10,2" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Grid.Column="0" Grid.Row="6"    />
-                <TextBox x:Name="ageTextBox" materialDesign:HintAssist.Hint="Age" Margin="10,2" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Grid.Column="0" Grid.Row="6"    />
+                <!--<TextBox x:Name="ageTextBox" materialDesign:HintAssist.Hint="Age" Margin="10,2" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Grid.Column="0" Grid.Row="6"    />-->
                 <TextBox x:Name="phoneExtTextBox" materialDesign:HintAssist.Hint="Phone Extension" Margin="10,2" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center"  Grid.Column="0" Grid.Row="7"   />
-                <TextBox x:Name="lcTextBox" materialDesign:HintAssist.Hint="License Number" Margin="10,2" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center"  Grid.Column="0" Grid.Row="7"   />
+                <!--<TextBox x:Name="lcTextBox" materialDesign:HintAssist.Hint="License Number" Margin="10,2" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center"  Grid.Column="0" Grid.Row="7"   />-->
                 <TextBox x:Name="usernameTextBox" materialDesign:HintAssist.Hint="Username" Margin="10,2" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Grid.Column="0" Grid.Row="8" />
-                <DatePicker x:Name="expiryTextBox"  materialDesign:HintAssist.Hint="License Expiry Date"  Margin="10,2"  Style="{StaticResource MaterialDesignFilledDatePicker}" VerticalAlignment="Center" Grid.Column="0" Grid.Row="8"  />
+                <!--<DatePicker x:Name="expiryTextBox"  materialDesign:HintAssist.Hint="License Expiry Date"  Margin="10,2"  Style="{StaticResource MaterialDesignFilledDatePicker}" VerticalAlignment="Center" Grid.Column="0" Grid.Row="8"  />-->
                 <TextBox x:Name="passwordTextBox" materialDesign:HintAssist.Hint="Password" Margin="10,2" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center"  Grid.Column="0" Grid.Row="9"   />
                 <ComboBox x:Name="roleComboBox" materialDesign:HintAssist.Hint="Role"  Style="{StaticResource MaterialDesignFilledComboBox}" Margin="10,2"  VerticalAlignment="Center" Grid.Column="0" Grid.Row="10" >
                     <ComboBoxItem Content="Staff" IsSelected="True"/>

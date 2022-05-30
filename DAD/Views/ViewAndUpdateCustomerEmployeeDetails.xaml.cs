@@ -23,7 +23,9 @@ namespace DAD.Views
     public partial class ViewAndUpdateCustomerEmployeeDetails : UserControl
     {
         int count;
-        TruckEmployee ed = new TruckEmployee();
+        TruckPerson ed = new TruckPerson();
+        EmployeeDetails emd = new EmployeeDetails();
+
 
         public ViewAndUpdateCustomerEmployeeDetails()
         {
@@ -80,16 +82,16 @@ namespace DAD.Views
         {
             if (v)
             {
-                ageTextBox.Visibility = Visibility.Visible;
-                lcTextBox.Visibility = Visibility.Visible;
-                expiryTextBox.Visibility = Visibility.Visible;
+                //ageTextBox.Visibility = Visibility.Visible;
+                //lcTextBox.Visibility = Visibility.Visible;
+                //expiryTextBox.Visibility = Visibility.Visible;
                 updateButoon.Visibility = Visibility.Visible;
             }
             else
             {
-                ageTextBox.Visibility = Visibility.Hidden;
-                lcTextBox.Visibility = Visibility.Hidden;
-                expiryTextBox.Visibility = Visibility.Hidden;
+                //ageTextBox.Visibility = Visibility.Hidden;
+                //lcTextBox.Visibility = Visibility.Hidden;
+                //expiryTextBox.Visibility = Visibility.Hidden;
                 updateButoon.Visibility = Visibility.Hidden;
             }
         }
@@ -151,8 +153,14 @@ namespace DAD.Views
 
         private void updateButoon_Click(object sender, RoutedEventArgs e)
         {
+            int output = DAO.validEmptyInput(formGrid);
+            if (output != 0)
+            {
+                MessageBox.Show("Enter Missing val");
+            }
+            else { 
             int id = int.Parse(idComboBox.Text);
-            ed = DAO.searchPEmployeeByID(id);
+            ed = DAO.searchEmployeeByID(id);
             string name = nameTextBox.Text;
             string address = addressTextBox.Text;
             string telephone = telephoneTextBox.Text;
@@ -164,87 +172,106 @@ namespace DAD.Views
             //Customer part is still remaining
             if (ed != null)
             {       
-               ed.Employee.Name= name;
-               ed.Employee.Address = address;
-               ed.Employee.Telephone = telephone;
-               ed.OfficeAddress = officeAddress;
-               ed.PhoneExtensionNumber = phoneExt;
-               ed.Password = password;
-               DAO.updateEmployeeRecord(ed);
-               MessageBox.Show("Updated Successfully");
-               roleComboBox.SelectedIndex = -1;
-
+               ed.Name= name;
+               ed.Address = address;
+               ed.Telephone = telephone;
+               ed.TruckEmployee.OfficeAddress = officeAddress;
+               ed.TruckEmployee.PhoneExtensionNumber = phoneExt;
+                ed.TruckEmployee.Username = username;
+               ed.TruckEmployee.Password = password;
+                ed.TruckEmployee.Role = roleComboBox.Text;
+                DAO.updateEmployeeRecord(ed);
+                MessageBox.Show("Updated Successfully");
             }
             
 
         }
-        
+        }
+
 
         private void SearchID_Click(object sender, RoutedEventArgs e)
         {
-            
-           
-            if(count == 1)
-            {
+            emd = DAO.fetchPersonalInfo().FirstOrDefault();
+                       
+                if(count == 1)
+                {
                 
-                if (idComboBox.SelectedIndex == -1)
-                {
-                    idComboBox.BorderBrush = Brushes.Red;
-                }
-                else
-                {
-                    int id = int.Parse(idComboBox.Text);
-                    idComboBox.BorderBrush = Brushes.Black;
-                    TruckPerson p = DAO.searchEmployeeByID(id);
-                    if (p != null)
+                    if (idComboBox.SelectedIndex == -1)
                     {
-                        addressTextBox.Text = p.Address;
-                        telephoneTextBox.Text = p.Telephone;
-                        nameTextBox.Text = p.Name;
-                        phoneExtTextBox.Text = p.TruckEmployee.PhoneExtensionNumber;
-                        usernameTextBox.Text = p.TruckEmployee.Username;
-                        passwordTextBox.Text = p.TruckEmployee.Password;
-                        officeAddressTextBox.Text = p.TruckEmployee.OfficeAddress;
-                        roleComboBox.SelectedIndex = p.TruckEmployee.Role.IndexOf(p.TruckEmployee.Role);
+                        idComboBox.BorderBrush = Brushes.Red;
+                    }
+                    else
+                    {
+                        int id = int.Parse(idComboBox.Text);
+                        idComboBox.BorderBrush = Brushes.Black;
+                        TruckPerson p = DAO.searchEmployeeByID(id);
+                        if (p != null)
+                        {
+                            addressTextBox.Text = p.Address;
+                            telephoneTextBox.Text = p.Telephone;
+                            nameTextBox.Text = p.Name;
+                            phoneExtTextBox.Text = p.TruckEmployee.PhoneExtensionNumber;
+                            usernameTextBox.Text = p.TruckEmployee.Username;
+                            passwordTextBox.Text = p.TruckEmployee.Password;
+                            officeAddressTextBox.Text = p.TruckEmployee.OfficeAddress;
+                            roleComboBox.Text = p.TruckEmployee.Role;
 
 
-                        isVisibleCommonFields(true);
-                        isVisibleEmployeeFields(true);
-                        isVisibleCustomerFields(false);
-                        updateButoon.Visibility = Visibility.Visible;
+                            isVisibleCommonFields(true);
+                            isVisibleEmployeeFields(true);
+                            isVisibleCustomerFields(false);
+                        if(emd.Role == "Admin")
+                        { 
+                            updateButoon.Visibility = Visibility.Visible;
+                        }
+                        else
+                        {
+                            updateButoon.Visibility = Visibility.Hidden;
+                        }
                     }
                 }
                
-            }
-            else
-            {
-                if (idComboBox.SelectedIndex == -1)
-                {
-                    idComboBox.BorderBrush = Brushes.Red;
                 }
+            
                 else
                 {
-                    int id = int.Parse(idComboBox.Text);
-                    idComboBox.BorderBrush = Brushes.Black;
-                    TruckPerson p = DAO.searchCustomerByID(id);
-                    if (p != null)
+                    if (idComboBox.SelectedIndex == -1)
                     {
-                        addressTextBox.Text = p.Address;
-                        telephoneTextBox.Text = p.Telephone;
-                        nameTextBox.Text = p.Name;
-                        //int.Parse(ageTextBox.Text) = p.TruckCustomer.Age;
-                        lcTextBox.Text = p.TruckCustomer.LicenseNumber;
-                        //DateTime.Parse(expiryTextBox.Text) = p.TruckCustomer.LicenseExpiryDate;
-
-                        isVisibleCommonFields(true);
-                        isVisibleEmployeeFields(false);
-                        isVisibleCustomerFields(true);
+                        idComboBox.BorderBrush = Brushes.Red;
                     }
-                }
+                    else
+                    {
+                        int id = int.Parse(idComboBox.Text);
+                        idComboBox.BorderBrush = Brushes.Black;
+                        TruckPerson p = DAO.searchCustomerByID(id);
+                        if (p != null)
+                        {
+                            addressTextBox.Text = p.Address;
+                            telephoneTextBox.Text = p.Telephone;
+                            nameTextBox.Text = p.Name;
+                            //int.Parse(ageTextBox.Text) = p.TruckCustomer.Age;
+                            //lcTextBox.Text = p.TruckCustomer.LicenseNumber;
+                            //DateTime.Parse(expiryTextBox.Text) = p.TruckCustomer.LicenseExpiryDate;
+
+                            isVisibleCommonFields(true);
+                            isVisibleEmployeeFields(false);
+                            isVisibleCustomerFields(true);
+                        if (emd.Role == "Admin")
+                        {
+                            updateButoon.Visibility = Visibility.Visible;
+                        }
+                        else
+                        {
+                            updateButoon.Visibility = Visibility.Hidden;
+                        }
+                    }
+                    }
                
+                }
             }
-        }
+            
 
         
     }
-}
+    }
+

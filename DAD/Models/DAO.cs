@@ -12,11 +12,13 @@ namespace DAD.Models
 {
     internal class DAO
     {
-        public static void updateEmployeeRecord( TruckEmployee p)
+        public static void updateEmployeeRecord( TruckPerson p)
         {
             using (DAD_JeelContext ctx = new DAD_JeelContext())
             {
                 ctx.Entry(p).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                ctx.Entry(p.TruckEmployee).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+
                 ctx.SaveChanges();
             }
         }
@@ -138,6 +140,7 @@ namespace DAD.Models
             {
                 return ctx.TruckEmployees.Include(em => em.Employee).Select(p => new EmployeeDetails()
                 {
+                    EmployeeId = p.EmployeeId,
                     Name = p.Employee.Name,
                     Telephone = p.Employee.Telephone,
                     Address = p.Employee.Address,

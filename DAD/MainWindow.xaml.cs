@@ -1,4 +1,6 @@
-﻿using DAD.Views;
+﻿using DAD.Models;
+using DAD.Models.DB;
+using DAD.Views;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -22,9 +24,24 @@ namespace DAD
     /// </summary>
     public partial class MainWindow : Window
     {
+        EmployeeDetails ed = new EmployeeDetails();
+
         public MainWindow()
         {
             InitializeComponent();
+            
+            ed = DAO.fetchPersonalInfo().FirstOrDefault();
+            if(ed.Role == "Admin")
+            {
+                addEmployee.IsEnabled = true;
+               
+
+            }
+            else
+            {
+                addEmployee.IsEnabled = false;
+            }
+
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)

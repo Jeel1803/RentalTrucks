@@ -8,11 +8,11 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Menu >
-            <MenuItem
+            <MenuItem 
     Header="Employee and Customer Management"
     Background="{DynamicResource PrimaryHueMidBrush}"
     Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" >
-                <MenuItem
+                <MenuItem x:Name="addEmployee"
       Header="Add New Employee"
       Background="{DynamicResource SecondaryHueMidBrush}"
       Foreground="{DynamicResource SecondaryHueMidForegroundBrush}" Click="MenuItem_Click"/>

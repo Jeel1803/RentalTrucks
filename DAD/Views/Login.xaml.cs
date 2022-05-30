@@ -21,6 +21,8 @@ namespace DAD.Views
     /// </summary>
     public partial class Login : Window
     {
+        EmployeeDetails ed = new EmployeeDetails();
+
         public Login()
         {
             InitializeComponent();
@@ -51,7 +53,18 @@ namespace DAD.Views
                     MainWindow mainWindow = new MainWindow();
                     mainWindow.Show();
                     this.Hide();
-                    MessageBox.Show("Welcome");
+
+                    ed = DAO.fetchPersonalInfo().FirstOrDefault();
+                    if(ed.Role == "Admin")
+                    {
+                        MessageBox.Show("You are Admin");
+                        
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("You are Employee");
+                    }
                 }
                 catch (Exception ex)
                 {
