@@ -25,6 +25,7 @@ namespace DAD.Views
         public AddEmployeeUC()
         {
             InitializeComponent();
+            errorLabel.Visibility = Visibility.Hidden;
         }
 
 
@@ -33,7 +34,8 @@ namespace DAD.Views
             int output = DAO.validEmptyInput(formGrid);
             if (output != 0)
             {
-                MessageBox.Show("Enter Missing val");
+                errorLabel.Visibility = Visibility.Visible;
+
             }
             else { 
             string name = nameTextBox.Text;
@@ -71,6 +73,7 @@ namespace DAD.Views
                     usernameTextBox.Clear();
                     passwordTextBox.Clear();
                     phoneExtTextBox.Clear();
+                    errorLabel.Visibility = Visibility.Hidden;
                 }
 
                 catch (Exception ex)
@@ -89,6 +92,11 @@ namespace DAD.Views
             usernameTextBox.Clear();
             passwordTextBox.Clear();
             phoneExtTextBox.Clear();
+        }
+
+        private void SnackbarMessage_ActionClick(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -31,17 +31,16 @@ namespace DAD.Views
 
         private void loginButton_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(usernameTextBox.Text) || string.IsNullOrEmpty(passwordTextBox.Text))
+            int output = DAO.validEmptyInput(formGrid);
+            if (output != 0)
             {
-                usernameTextBox.BorderBrush = Brushes.Red;
-                passwordTextBox.BorderBrush = Brushes.Red; 
                 errorLabel.Visibility = Visibility.Visible;
+
             }
+
             else
             {
                 errorLabel.Visibility = Visibility.Hidden;
-                usernameTextBox.BorderBrush = Brushes.Black;
-                passwordTextBox.BorderBrush = Brushes.Black;
                 string usname = usernameTextBox.Text;
                 string pass = passwordTextBox.Text;
                 TruckEmployee truckEmployee = new TruckEmployee();
@@ -53,6 +52,7 @@ namespace DAD.Views
                     MainWindow mainWindow = new MainWindow();
                     mainWindow.Show();
                     this.Hide();
+                    errorLabel.Visibility = Visibility.Hidden;
 
                     ed = DAO.fetchPersonalInfo().FirstOrDefault();
                     if(ed.Role == "Admin")

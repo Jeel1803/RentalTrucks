@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DAD" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="900"
+        MinHeight="600" MinWidth="900">
     <Grid>
         <Menu >
             <MenuItem 
@@ -21,7 +22,7 @@
       Background="{DynamicResource SecondaryHueMidBrush}"
       Foreground="{DynamicResource SecondaryHueMidForegroundBrush}" Click="peopleInformation_Click"/>
                 <MenuItem  Name="viewAndUpdateCustomerEmployee" 
-      Header="View and Update Customer"
+      Header="View and Update Employee"
       Background="{DynamicResource SecondaryHueMidBrush}"
       Foreground="{DynamicResource SecondaryHueMidForegroundBrush}" Click="viewAndUpdateCustomerEmployee_Click" />
                 <MenuItem
@@ -34,9 +35,10 @@
       Foreground="{DynamicResource SecondaryHueMidForegroundBrush}" Click="login_Click" />
             </MenuItem>
         </Menu>
-
+        
         <StackPanel x:Name="mainPanel" Margin="20,8,20,20" Grid.Row="1">
-            
+            <!-- long hand form for setting the message -->
+           
         </StackPanel>
 
     </Grid>

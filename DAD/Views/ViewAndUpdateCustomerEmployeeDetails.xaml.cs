@@ -38,6 +38,21 @@ namespace DAD.Views
             isVisibleCustomerFields(false);
             isVisibleEmployeeFields(false);
             isVisibleIDInputs(false);
+            usernameTextBox.IsEnabled = false;
+            roleComboBox.IsEnabled = false;
+        }
+        private void isAdmin(bool v)
+        {
+            if (v)
+            {
+                updateButoon.Visibility = Visibility.Visible;
+                roleComboBox.IsEnabled = true;
+            }
+            else
+            {
+                updateButoon.Visibility = Visibility.Hidden;
+                roleComboBox.IsEnabled = false;
+            }
         }
 
         private void isVisibleIDInputs(bool v)
@@ -215,18 +230,18 @@ namespace DAD.Views
                             passwordTextBox.Text = p.TruckEmployee.Password;
                             officeAddressTextBox.Text = p.TruckEmployee.OfficeAddress;
                             roleComboBox.Text = p.TruckEmployee.Role;
-
+                        
 
                             isVisibleCommonFields(true);
                             isVisibleEmployeeFields(true);
                             isVisibleCustomerFields(false);
                         if(emd.Role == "Admin")
-                        { 
-                            updateButoon.Visibility = Visibility.Visible;
+                        {
+                            isAdmin(true);
                         }
                         else
                         {
-                            updateButoon.Visibility = Visibility.Hidden;
+                            isAdmin(false);
                         }
                     }
                 }
@@ -258,11 +273,11 @@ namespace DAD.Views
                             isVisibleCustomerFields(true);
                         if (emd.Role == "Admin")
                         {
-                            updateButoon.Visibility = Visibility.Visible;
+                            isAdmin(true);
                         }
                         else
                         {
-                            updateButoon.Visibility = Visibility.Hidden;
+                            isAdmin(false);
                         }
                     }
                     }

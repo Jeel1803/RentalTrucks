@@ -8,46 +8,53 @@
              xmlns:local="clr-namespace:DAD"
              d:DesignHeight="450" d:DesignWidth="800">
 
-    
+
     <Grid Width="auto" Height="auto" Margin="0 , 50 , 0, 0   "  Background="Azure">
         <StackPanel >
             <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Text="Add New Emplopyee Form"  VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Width="auto"  />
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40*"/>
+                    <RowDefinition Height="14*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Add New Emplopyee Form" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Width="auto"  />
+                <Label Name="errorLabel" Grid.Row="2"  Content="Highlighted Fields are Required" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,8,0,0" Foreground="Red" FontSize="10" Grid.RowSpan="2"/>
+
             </Grid >
         </StackPanel>
 
         <StackPanel>
-            <Grid Name="formGrid" Margin='0,50 , 0, 0'>      
+            <Grid Name="formGrid" Margin='0,70 , 0, 0'>
                 <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions >
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="2*"/>
-        </Grid.RowDefinitions>
-
-        <TextBox x:Name="nameTextBox" Style="{StaticResource MaterialDesignFilledTextBox}" Grid.Column="0" Grid.Row="1" materialDesign:HintAssist.Hint="Please Enter Name here"  Margin="10,10,10,17"/>
-        <TextBox x:Name="addressTextBox" Style="{StaticResource MaterialDesignFilledTextBox}" Grid.Column="0" Grid.Row="2" materialDesign:HintAssist.Hint="Please Enter Address here" Margin="10,10,10,17"/>
-        <TextBox x:Name="telephoneTextBox" Style="{StaticResource MaterialDesignFilledTextBox}" Grid.Column="0" Grid.Row="3" materialDesign:HintAssist.Hint="Please Enter Telephone here"  Margin="10,10,10,17"/>
-        <TextBox x:Name="officeAddressTextBox" Style="{StaticResource MaterialDesignFilledTextBox}" Grid.Column="0" Grid.Row="4" materialDesign:HintAssist.Hint="Please Enter Office Address here"  Margin="10,10,10,18"/>
-        <TextBox x:Name="phoneExtTextBox" Style="{StaticResource MaterialDesignFilledTextBox}" Grid.Column="1" Grid.Row="1" materialDesign:HintAssist.Hint="Please Enter Phone Extension here" Margin="10,10,10,17"/>
-        <TextBox x:Name="usernameTextBox" Style="{StaticResource MaterialDesignFilledTextBox}" Grid.Column="1" Grid.Row="2" materialDesign:HintAssist.Hint="Please Enter Username here"  Margin="10,10,10,17"/>
-        <TextBox x:Name="passwordTextBox" Style="{StaticResource MaterialDesignFilledTextBox}" Grid.Column="1" Grid.Row="3" materialDesign:HintAssist.Hint="Please Enter Password here"  Margin="10,10,10,17"/>
-        <ComboBox x:Name="roleComboBox" Style="{StaticResource MaterialDesignFilledComboBox}"  Grid.Row="4" Grid.Column="1" Margin="10,10,10,18">
-            <ComboBoxItem Content="Staff" IsSelected="True"/>
-            <ComboBoxItem Content="Admin" />
-        </ComboBox>
-        <materialDesign:Badged  x:Name="addEmployeeeButton" BadgeColorZoneMode="PrimaryDark"/>
-        <Button MaxWidth="400" x:Name="addEmployeeButton" Style="{StaticResource MaterialDesignRaisedLightButton}"  Content="Add Employee" Margin="95,34,75,46" Grid.Row="5" Click="addEmployeeButton_Click" />
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions >
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <TextBox x:Name="nameTextBox" Style="{StaticResource MaterialDesignFilledTextBox}" Grid.Column="0" Grid.Row="1" materialDesign:HintAssist.Hint="Please Enter Name here"  Margin="10,10,10,17"/>
+                <TextBox x:Name="addressTextBox" Style="{StaticResource MaterialDesignFilledTextBox}" Grid.Column="0" Grid.Row="2" materialDesign:HintAssist.Hint="Please Enter Address here" Margin="10,10,10,17"/>
+                <TextBox x:Name="telephoneTextBox" Style="{StaticResource MaterialDesignFilledTextBox}" Grid.Column="0" Grid.Row="3" materialDesign:HintAssist.Hint="Please Enter Telephone here"  Margin="10,10,10,17"/>
+                <TextBox x:Name="officeAddressTextBox" Style="{StaticResource MaterialDesignFilledTextBox}" Grid.Column="0" Grid.Row="4" materialDesign:HintAssist.Hint="Please Enter Office Address here"  Margin="10,10,10,18"/>
+                <TextBox x:Name="phoneExtTextBox" Style="{StaticResource MaterialDesignFilledTextBox}" Grid.Column="1" Grid.Row="1" materialDesign:HintAssist.Hint="Please Enter Phone Extension here" Margin="10,10,10,17"/>
+                <TextBox x:Name="usernameTextBox" Style="{StaticResource MaterialDesignFilledTextBox}" Grid.Column="1" Grid.Row="2" materialDesign:HintAssist.Hint="Please Enter Username here"  Margin="10,10,10,17"/>
+                <TextBox x:Name="passwordTextBox" Style="{StaticResource MaterialDesignFilledTextBox}" Grid.Column="1" Grid.Row="3" materialDesign:HintAssist.Hint="Please Enter Password here"  Margin="10,10,10,17"/>
+                <ComboBox x:Name="roleComboBox" Style="{StaticResource MaterialDesignFilledComboBox}"  Grid.Row="4" Grid.Column="1" Margin="10,10,10,18">
+                    <ComboBoxItem Content="Staff" IsSelected="True"/>
+                    <ComboBoxItem Content="Admin" />
+                </ComboBox>
+                <materialDesign:Badged  x:Name="addEmployeeeButton" BadgeColorZoneMode="PrimaryDark"/>
+                <Button MaxWidth="400" x:Name="addEmployeeButton" Style="{StaticResource MaterialDesignRaisedLightButton}"  Content="Add Employee" Margin="95,34,75,46" Grid.Row="5" Click="addEmployeeButton_Click" />
                 <Button MaxWidth="400" x:Name="resetButton" Style="{StaticResource MaterialDesignRaisedLightButton}"  Content="Reset"  Margin="64,34,106,46" Grid.Row="5" Grid.Column="1" Click="resetButton_Click" />
+                <!-- long hand form for setting the message -->
+                <!--<materialDesign:Snackbar  x:Name="SnackbarTwo" MessageQueue="{materialDesign:MessageQueue}"   IsActive="False">
+                    <materialDesign:SnackbarMessage   Content="Hello 2"   ActionClick="SnackbarMessage_ActionClick" ActionContent="UNDO" />
+                </materialDesign:Snackbar>-->
+
             </Grid>
 
         </StackPanel>
