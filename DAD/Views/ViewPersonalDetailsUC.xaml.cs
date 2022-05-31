@@ -24,12 +24,14 @@ namespace DAD.Views
     {
         List<EmployeeDetails> data = null;
         EmployeeDetails ed = new EmployeeDetails();
+        
         public ViewPersonalDetailsUC()
         {
             InitializeComponent();
 
             isEditable(false);
             ed = DAO.fetchPersonalInfo().FirstOrDefault();
+
 
             nameTextBox.Text = ed.Name;
             addressTextBox.Text = ed.Address;
@@ -56,6 +58,7 @@ namespace DAD.Views
                 usernameTextBox.IsEnabled = true;
                 passwordTextBox.IsEnabled = true;
                 roleComboBox.IsEnabled = false;
+                updateButton.IsEnabled = true;
 
             }
             else
@@ -68,6 +71,7 @@ namespace DAD.Views
                 usernameTextBox.IsEnabled = false;
                 passwordTextBox.IsEnabled = false;
                 roleComboBox.IsEnabled = false;
+                updateButton.IsEnabled = false;
             }
         }
 

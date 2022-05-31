@@ -26,6 +26,8 @@ namespace DAD.Views
         {
             InitializeComponent();
             errorLabel.Visibility = Visibility.Hidden;
+            usernameErrorLabel.Visibility = Visibility.Hidden;
+
         }
 
 
@@ -34,11 +36,20 @@ namespace DAD.Views
             int output = DAO.validEmptyInput(formGrid);
             if (output != 0)
             {
-                errorLabel.Visibility = Visibility.Visible;
+                if(usernameErrorLabel.Visibility == Visibility.Hidden) 
+                { 
+                    errorLabel.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    errorLabel.Visibility = Visibility.Hidden;
+                }
 
             }
-            else { 
-            string name = nameTextBox.Text;
+            else 
+            {
+     
+                string name = nameTextBox.Text;
             string address = addressTextBox.Text;
             string telephone = telephoneTextBox.Text;
             string officeAddress = officeAddressTextBox.Text;
@@ -60,6 +71,7 @@ namespace DAD.Views
                 truckEmployee.Role = role;
                 truckEmployee.PhoneExtensionNumber = phoneExt;
                 truckEmployee.Employee = truckPerson;
+                errorLabel.Visibility = Visibility.Hidden;
 
 
                 try
@@ -78,8 +90,12 @@ namespace DAD.Views
 
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    
+                        usernameErrorLabel.Visibility = Visibility.Visible;
+                    usernameTextBox.BorderBrush = Brushes.Red;
                 }
+
+                
             }
         }
 
@@ -94,9 +110,6 @@ namespace DAD.Views
             phoneExtTextBox.Clear();
         }
 
-        private void SnackbarMessage_ActionClick(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
     }
 }

@@ -29,8 +29,12 @@ namespace DAD
         public MainWindow()
         {
             InitializeComponent();
-            
             ed = DAO.fetchPersonalInfo().FirstOrDefault();
+
+            greetingLabel.Content = ( " Kia Ora, " + ed.Name + " \n" + "Welcome to the NZ Truck Rentals ");
+
+           
+            
             if(ed.Role == "Admin")
             {
                 addEmployee.IsEnabled = true;
@@ -82,7 +86,11 @@ namespace DAD
           
         }
 
-        
+        private void customerDetails_Click(object sender, RoutedEventArgs e)
+        {
+            mainPanel.Children.Clear();
+            mainPanel.Children.Add(new ViewAndUpdateCustomerInformation());
+        }
     }
 
    

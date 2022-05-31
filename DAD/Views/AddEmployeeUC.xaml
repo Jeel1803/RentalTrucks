@@ -17,7 +17,8 @@
                     <RowDefinition Height="14*"/>
                 </Grid.RowDefinitions>
                 <TextBlock Text="Add New Emplopyee Form" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Width="auto"  />
-                <Label Name="errorLabel" Grid.Row="2"  Content="Highlighted Fields are Required" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,8,0,0" Foreground="Red" FontSize="10" Grid.RowSpan="2"/>
+                <Label Name="errorLabel" Grid.Row="1"  Content="Highlighted Fields are Required" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,8,0,0" Foreground="Red" FontSize="10" Grid.RowSpan="2"/>
+                <Label Name="usernameErrorLabel" Grid.Row="1"  Content="Provided username not available. Please Choose Different Username" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,8,0,0" Foreground="Red" FontSize="10" Grid.RowSpan="2"/>
 
             </Grid >
         </StackPanel>
@@ -48,13 +49,9 @@
                     <ComboBoxItem Content="Admin" />
                 </ComboBox>
                 <materialDesign:Badged  x:Name="addEmployeeeButton" BadgeColorZoneMode="PrimaryDark"/>
-                <Button MaxWidth="400" x:Name="addEmployeeButton" Style="{StaticResource MaterialDesignRaisedLightButton}"  Content="Add Employee" Margin="95,34,75,46" Grid.Row="5" Click="addEmployeeButton_Click" />
-                <Button MaxWidth="400" x:Name="resetButton" Style="{StaticResource MaterialDesignRaisedLightButton}"  Content="Reset"  Margin="64,34,106,46" Grid.Row="5" Grid.Column="1" Click="resetButton_Click" />
-                <!-- long hand form for setting the message -->
-                <!--<materialDesign:Snackbar  x:Name="SnackbarTwo" MessageQueue="{materialDesign:MessageQueue}"   IsActive="False">
-                    <materialDesign:SnackbarMessage   Content="Hello 2"   ActionClick="SnackbarMessage_ActionClick" ActionContent="UNDO" />
-                </materialDesign:Snackbar>-->
-
+                <Button MaxWidth="500" x:Name="addEmployeeButton" Style="{StaticResource MaterialDesignRaisedLightButton}"  Content="Add Employee" Margin="95,34,75,46" Grid.Row="5" Click="addEmployeeButton_Click" />
+                <Button MaxWidth="500" x:Name="resetButton" Style="{StaticResource MaterialDesignRaisedLightButton}"  Content="Reset"  Margin="64,34,106,46" Grid.Row="5" Grid.Column="1" Click="resetButton_Click" />
+                
             </Grid>
 
         </StackPanel>

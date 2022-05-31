@@ -28,6 +28,7 @@ namespace DAD.Views
             idComboBox.ItemsSource = DAO.GetPersonID();
             idComboBox.DisplayMemberPath = "PersonId";
             idComboBox.SelectedValuePath = "PersonId";
+            errorLabel.Visibility = Visibility.Hidden;
 
             customerDataGrid.BorderBrush = new SolidColorBrush(Colors.White);
             customerDataGrid.BorderThickness = new Thickness(1,1, 1, 1);
@@ -42,15 +43,18 @@ namespace DAD.Views
 
         private void searchCustomerButton_Click(object sender, RoutedEventArgs e)
         {
-            int id = int.Parse(idComboBox.Text);
             if (idComboBox.SelectedIndex == -1)
             {
                 idComboBox.BorderBrush = Brushes.Red;
+                errorLabel.Visibility = Visibility.Visible;
             }
             else
             {
+                int id = int.Parse(idComboBox.Text);
                 idComboBox.BorderBrush = Brushes.Black;
                  customerDataGrid.ItemsSource = DAO.getPeople(id);
+                errorLabel.Visibility = Visibility.Hidden;
+
             }
 
         }

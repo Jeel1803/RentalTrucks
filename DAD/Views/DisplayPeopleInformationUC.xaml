@@ -11,10 +11,13 @@
     <Grid Name="formGrid" ShowGridLines="False" Width="auto" Height="auto" Margin="0 , 50 , 0, 0   " Background="Azure">
         <StackPanel >
             <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40*"/>
+                    <RowDefinition Height="14*"/>
+                </Grid.RowDefinitions>
                 <TextBlock Text="Search And Update Information"  VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Width="auto"  />
+                <Label Name="errorLabel" Grid.Row="1"  Content="Please Select the Person ID" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,8,0,0" Foreground="Red" FontSize="10" Grid.RowSpan="2"/>
+
             </Grid >
         </StackPanel>
         <StackPanel>
@@ -26,24 +29,24 @@
         <materialDesign:Badged
   x:Name="CountingBadge"
   BadgeColorZoneMode="PrimaryDark" HorizontalAlignment="Center" Height="0" Width="0"/>
-                <DataGrid Margin='0,150 , 0, 0' Grid.Row="2" BorderThickness="1" x:Name="customerDataGrid" 
+                <DataGrid Margin='0,150 , 0, 0'  Grid.Row="2" BorderThickness="1" x:Name="customerDataGrid" 
           CanUserAddRows="False"
                   
           SelectionUnit="Cell"
-          SelectionMode="Extended" >
-            <DataGrid.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Aqua"/>
-                    
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </DataGrid.Background>
-        </DataGrid>
+          SelectionMode="Extended" FontWeight="Bold" FontSize="16" >
+                    <DataGrid.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="Azure"/>
+
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </DataGrid.Background>
+                </DataGrid>
             </Grid>
         </StackPanel>
 
         <StackPanel>
-            <Grid Margin='0,50 , 0, 0'>
+            <Grid Margin='0,70 , 0, 0'>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
@@ -56,9 +59,9 @@
                 <Button Content="Clear" Style="{StaticResource MaterialDesignFlatButton}" HorizontalAlignment="Right" Click="ClearFilledComboBox_Click"  Width="83" Grid.Column="0" />
                 <ComboBox x:Name="idComboBox" Grid.Row="1" Style="{StaticResource MaterialDesignFilledComboBox}" IsEnabled="{Binding IsChecked, ElementName=FilledComboBoxEnabledCheckBox}" materialDesign:HintAssist.Hint="Select Person ID" Width="auto"/>
 
-                <Button MaxWidth="400" x:Name="searchCustomerButton" Grid.Row="1" Grid.Column="1" Style="{StaticResource MaterialDesignRaisedLightButton}" Click="searchCustomerButton_Click" Content="Search"  Margin=" 40, 10"/>
+                <Button MaxWidth="500" x:Name="searchCustomerButton" Grid.Row="1" Grid.Column="1" Style="{StaticResource MaterialDesignRaisedLightButton}" Click="searchCustomerButton_Click" Content="Search"  Margin=" 40, 10"/>
             </Grid>
-            <Button MaxWidth="400" x:Name="showAllCustomerButton" Grid.Row="0"  Grid.Column="1" Style="{StaticResource MaterialDesignRaisedLightButton}" Click="showAllCustomerButton_Click" Content="Show All" Margin=" 200, 10"  />
+            <Button MaxWidth="500" x:Name="showAllCustomerButton" Grid.Row="0"  Grid.Column="1" Style="{StaticResource MaterialDesignRaisedLightButton}" Click="showAllCustomerButton_Click" Content="Show All" Margin=" 200, 10"  />
         </StackPanel>
 
     </Grid>

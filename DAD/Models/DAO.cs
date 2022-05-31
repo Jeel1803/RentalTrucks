@@ -22,6 +22,17 @@ namespace DAD.Models
                 ctx.SaveChanges();
             }
         }
+
+        public static void updateCustomerRecord(TruckPerson p)
+        {
+            using (DAD_JeelContext ctx = new DAD_JeelContext())
+            {
+                ctx.Entry(p).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                ctx.Entry(p.TruckCustomer).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+
+                ctx.SaveChanges();
+            }
+        }
         public static void updatePesonal(List<EmployeeDetails> data)
         {
             using (DAD_JeelContext ctx = new DAD_JeelContext())
@@ -66,6 +77,24 @@ namespace DAD.Models
             }
         }
 
+        public static List<CustomerDetails> fetchCustomerInfo()
+        {
+            using (DAD_JeelContext ctx = new DAD_JeelContext())
+            {
+                return ctx.TruckCustomers.Include(c => c.Customer).Select(p => new CustomerDetails()
+                {
+                    PersonId = p.Customer.PersonId,
+                    CustomerId = p.CustomerId,
+                    Name = p.Customer.Name,
+                    Telephone = p.Customer.Telephone,
+                    Address = p.Customer.Address,
+                    Age = p.Age,
+                    LicenseExpiryDate = p.LicenseExpiryDate,
+                    LicenseNumber = p.LicenseNumber,
+                }).ToList();
+            }
+        }
+
         public static void login(TruckEmployee truckEmployee)
         {
             using (DAD_JeelContext ctx = new DAD_JeelContext())
@@ -97,30 +126,21 @@ namespace DAD.Models
 
             }
         }
-        public static TruckPerson searchCustomerByID(int id)
-        {
-            using (DAD_JeelContext ctx = new DAD_JeelContext())
-            {
-                return ctx.TruckPeople.Include(p => p.TruckCustomer).Where(em => em.PersonId == id).FirstOrDefault();
-            }
-        }
+        
         public static TruckPerson searchEmployeeByID(int id)
         {
             using (DAD_JeelContext ctx = new DAD_JeelContext())
             {
-                return ctx.TruckPeople.Include(p => p.TruckEmployee).Where(em => em.PersonId == id).FirstOrDefault();
+                return ctx.TruckPeople.Include(p => p.TruckEmployee).Where(em => em.TruckEmployee.EmployeeId == id).FirstOrDefault();
             }
         }
-
-
-        public static TruckEmployee searchPEmployeeByID(int id)
+        public static TruckPerson searchCustomerByID(int id)
         {
             using (DAD_JeelContext ctx = new DAD_JeelContext())
             {
-                return ctx.TruckEmployees.Include(p => p.Employee).Where(em => em.Employee.PersonId == id).FirstOrDefault();
+                return ctx.TruckPeople.Include(p => p.TruckCustomer).Where(em => em.TruckCustomer.CustomerId == id).FirstOrDefault();
             }
         }
-
         public static List<PersonInformation> getPeople()
         {
             using (DAD_JeelContext ctx = new DAD_JeelContext())
@@ -141,10 +161,10 @@ namespace DAD.Models
                 return ctx.TruckEmployees.Include(em => em.Employee).Select(p => new EmployeeDetails()
                 {
                     EmployeeId = p.EmployeeId,
+                    PersonId = p.Employee.PersonId,
                     Name = p.Employee.Name,
                     Telephone = p.Employee.Telephone,
                     Address = p.Employee.Address,
-                    PersonId = p.Employee.PersonId,
                     Username = p.Username,
                     Password = p.Password,
                     OfficeAddress = p.OfficeAddress,
@@ -160,12 +180,12 @@ namespace DAD.Models
             {
                 return ctx.TruckCustomers.Include(c => c.Customer).Select(p => new CustomerDetails()
                 {
+                    CustomerId = p.CustomerId,
+                    PersonId = p.Customer.PersonId,
                     Name = p.Customer.Name,
                     Telephone = p.Customer.Telephone,
                     Address = p.Customer.Address,
-                    PersonId = p.Customer.PersonId,
                     Age = p.Age,
-                    CustomerId = p.CustomerId,
                     LicenseExpiryDate = p.LicenseExpiryDate,
                     LicenseNumber = p.LicenseNumber,
                 }).ToList();
@@ -177,6 +197,21 @@ namespace DAD.Models
             using (DAD_JeelContext ctx = new DAD_JeelContext())
             {
                 return ctx.TruckPeople.ToList();
+            }
+        }
+
+        public static List<TruckEmployee> GetEmployeeID()
+        {
+            using (DAD_JeelContext ctx = new DAD_JeelContext())
+            {
+                return ctx.TruckEmployees.ToList();
+            }
+        }
+        public static List<TruckCustomer> GetCustomerID()
+        {
+            using (DAD_JeelContext ctx = new DAD_JeelContext())
+            {
+                return ctx.TruckCustomers.ToList();
             }
         }
         private static bool containsUserName(string username)
@@ -234,24 +269,6 @@ namespace DAD.Models
             }
             return count;
 
-        }
-
-        public static int comboBox(Grid data)
-        {
-            int a = 0;
-            foreach (Control ctl in data.Children)
-            {
-                if (ctl.GetType() == typeof(ComboBox))
-                {
-                    ComboBox cb = (ComboBox)ctl;
-                    if(cb.SelectedIndex == -1)
-                    {
-                        cb.BorderBrush = Brushes.Red;
-                        a = 1;
-                    }
-                }
-            }
-            return a;
         }
 
         public static List<PersonInformation> getPeople(int id)

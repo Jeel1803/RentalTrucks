@@ -13,20 +13,11 @@
 
     <Grid  Width="auto" Height="auto" Margin="0 , 50 , 0, 0   "  Background="Azure">
 
-        <!--<Grid Height="280" VerticalAlignment="Top">
-            <Grid.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF2281D1"/>
-                    <GradientStop Color="#FF34268A" Offset="1"/>
-                    <GradientStop Color="#FF33288B" Offset="0.546"/>
-                </LinearGradientBrush>
-            </Grid.Fill>
-        </Grid>-->
-
         <Grid Width="280" Height="240" VerticalAlignment="Bottom" Background="White" Margin="0,80" />
         <Grid  VerticalAlignment="Bottom" Margin="35,80" Height="240">
             <Label Content="LOGIN" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5" Foreground="Black" FontSize="18"/>
-            <Label Name="errorLabel" Content="Highlighted Fields are Required" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,31,0,0" Foreground="Red" FontSize="10" RenderTransformOrigin="0.663,0.892"/>
+            <Label Name="errorLabel" Content="Highlighted Fields are Required" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,31,0,0" Foreground="Red" FontSize="10" />
+            <Label Name="crediantilErrorlabel" Content="Supplied Username or Password is Invalid" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,31,0,0" Foreground="Red" FontSize="10" />
             <StackPanel VerticalAlignment="Center" Margin="15">
                 <Grid Name="formGrid">
                     <TextBox Name="usernameTextBox" Margin="0,-17,0,37" materialDesign:HintAssist.Hint="Username" Style="{StaticResource MaterialDesignFilledTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>

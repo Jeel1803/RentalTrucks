@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DAD" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="900"
-        MinHeight="600" MinWidth="900">
+        Title="MainWindow" Height="700" Width="900"
+        MinHeight="700" MinWidth="900">
     <Grid>
         <Menu >
             <MenuItem 
@@ -26,6 +26,10 @@
       Background="{DynamicResource SecondaryHueMidBrush}"
       Foreground="{DynamicResource SecondaryHueMidForegroundBrush}" Click="viewAndUpdateCustomerEmployee_Click" />
                 <MenuItem
+      Header="View and Update Customer" x:Name="customerDetails"
+      Background="{DynamicResource SecondaryHueMidBrush}"
+      Foreground="{DynamicResource SecondaryHueMidForegroundBrush}" Click="customerDetails_Click" />
+                <MenuItem
       Header="My Account" x:Name="perosnalDetails"
       Background="{DynamicResource SecondaryHueMidBrush}"
       Foreground="{DynamicResource SecondaryHueMidForegroundBrush}" Click="perosnalDetails_Click" />
@@ -35,10 +39,11 @@
       Foreground="{DynamicResource SecondaryHueMidForegroundBrush}" Click="login_Click" />
             </MenuItem>
         </Menu>
-        
-        <StackPanel x:Name="mainPanel" Margin="20,8,20,20" Grid.Row="1">
-            <!-- long hand form for setting the message -->
-           
+
+        <StackPanel  x:Name="mainPanel" Margin="20,8,20,20" Grid.Row="1">
+            
+                <Label Name="greetingLabel" FontFamily="Gabriola" Margin="0,250"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsEnabled="False" />
+                
         </StackPanel>
 
     </Grid>

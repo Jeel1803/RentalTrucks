@@ -27,6 +27,7 @@ namespace DAD.Views
         {
             InitializeComponent();
             errorLabel.Visibility = Visibility.Hidden;
+           crediantilErrorlabel.Visibility = Visibility.Hidden;
         }
 
         private void loginButton_Click(object sender, RoutedEventArgs e)
@@ -54,21 +55,13 @@ namespace DAD.Views
                     this.Hide();
                     errorLabel.Visibility = Visibility.Hidden;
 
-                    ed = DAO.fetchPersonalInfo().FirstOrDefault();
-                    if(ed.Role == "Admin")
-                    {
-                        MessageBox.Show("You are Admin");
-                        
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("You are Employee");
-                    }
+                   
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    crediantilErrorlabel.Visibility = Visibility.Visible;
+                    usernameTextBox.BorderBrush = Brushes.Red;
+                    passwordTextBox.BorderBrush = Brushes.Red;
                 }
             }
         }
