@@ -31,6 +31,7 @@ namespace DAD.Views
             isFieldVisible(false);
             errorLabel.Visibility = Visibility.Hidden;
             isVisibleIDInputs(false);
+            detailsDataGrid.Visibility = Visibility.Hidden;
         }
         private void isFieldVisible(bool v)
         {
@@ -116,6 +117,7 @@ namespace DAD.Views
 
         private void searchAllCustomerButton_Click(object sender, RoutedEventArgs e)
         {
+            detailsDataGrid.Visibility= Visibility.Visible;
             detailsDataGrid.ItemsSource = DAO.GetCustomer();
 
         }

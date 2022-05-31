@@ -29,15 +29,14 @@ namespace DAD.Views
             idComboBox.DisplayMemberPath = "PersonId";
             idComboBox.SelectedValuePath = "PersonId";
             errorLabel.Visibility = Visibility.Hidden;
-
-            customerDataGrid.BorderBrush = new SolidColorBrush(Colors.White);
-            customerDataGrid.BorderThickness = new Thickness(1,1, 1, 1);
+            customerDataGrid.Visibility = Visibility.Hidden;    
         }
 
        
 
         private void showAllCustomerButton_Click(object sender, RoutedEventArgs e)
         {
+            customerDataGrid.Visibility = Visibility.Visible;
             customerDataGrid.ItemsSource =  DAO.getPeople();
         }
 

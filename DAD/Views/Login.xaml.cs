@@ -60,6 +60,8 @@ namespace DAD.Views
                 catch (Exception ex)
                 {
                     crediantilErrorlabel.Visibility = Visibility.Visible;
+                    usernameTextBox.Clear();
+                    passwordTextBox.Clear();
                     usernameTextBox.BorderBrush = Brushes.Red;
                     passwordTextBox.BorderBrush = Brushes.Red;
                 }

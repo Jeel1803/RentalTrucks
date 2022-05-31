@@ -17,8 +17,8 @@
                     <RowDefinition Height="14*"/>
                 </Grid.RowDefinitions>
                 <TextBlock Text="Add New Emplopyee Form" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Width="auto"  />
-                <Label Name="errorLabel" Grid.Row="1"  Content="Highlighted Fields are Required" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,8,0,0" Foreground="Red" FontSize="10" Grid.RowSpan="2"/>
-                <Label Name="usernameErrorLabel" Grid.Row="1"  Content="Provided username not available. Please Choose Different Username" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,8,0,0" Foreground="Red" FontSize="10" Grid.RowSpan="2"/>
+                <Label Name="errorLabel" Grid.Row="1"  Content="Highlighted Fields are Required" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,8,0,0" Foreground="Red" Grid.RowSpan="2" FontWeight="Bold"/>
+                <Label Name="usernameErrorLabel" Grid.Row="1"  Content="Provided username not available. Please Choose Different Username" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,8,0,0" Foreground="Red" Grid.RowSpan="2" FontWeight="Bold"/>
 
             </Grid >
         </StackPanel>

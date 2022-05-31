@@ -15,13 +15,13 @@
                     <RowDefinition Height="40*"/>
                     <RowDefinition Height="14*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="Search And Update Information"  VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Width="auto"  />
-                <Label Name="errorLabel" Grid.Row="1"  Content="Please Select the Person ID" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,8,0,0" Foreground="Red" FontSize="10" Grid.RowSpan="2"/>
+                <TextBlock Text="Search People Information"  VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Width="auto"  />
+                <Label Name="errorLabel" Grid.Row="1"  Content="Please Select the Person ID" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,8,0,0" Foreground="Red" Grid.RowSpan="2" FontWeight="Bold"/>
 
             </Grid >
         </StackPanel>
         <StackPanel>
-            <Grid Margin='0,50 , 0, 0'>
+            <Grid Margin='0,70 , 0, 0'>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="2*"/>
@@ -36,9 +36,8 @@
           SelectionMode="Extended" FontWeight="Bold" FontSize="16" >
                     <DataGrid.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="Azure"/>
-
-                            <GradientStop Color="White" Offset="1"/>
+                            <GradientStop Color="#FFA3A5FF" Offset="0"/>
+                            <GradientStop Color="#FFEDEFF3" Offset="1"/>
                         </LinearGradientBrush>
                     </DataGrid.Background>
                 </DataGrid>

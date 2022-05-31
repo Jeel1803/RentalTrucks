@@ -15,15 +15,15 @@
                     <RowDefinition Height="40*"/>
                     <RowDefinition Height="14*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="Display People Information"  VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Width="auto"  />
-                <Label Name="errorLabel" Grid.Row="1"  Content="Please Select the Employee ID" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,8,0,0" Foreground="Red" FontSize="10" Grid.RowSpan="2"/>
+                <TextBlock Text="Search and Update Employee Information"  VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Width="auto"  />
+                <Label Name="errorLabel" Grid.Row="1"  Content="Please Select the Employee ID" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,8,0,0" Foreground="Red" Grid.RowSpan="2" FontWeight="Bold"/>
 
             </Grid >
         </StackPanel>
 
         <StackPanel>
 
-            <Grid Margin='0,50 , 0, 0'>
+            <Grid Margin='0,70 , 0, 0'>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -39,7 +39,7 @@
             </Grid>
         </StackPanel>
         <StackPanel>
-            <Grid Name="formGrid" ShowGridLines="False" Margin="30,100,30,10">
+            <Grid Name="formGrid" ShowGridLines="False" Margin="30,120,30,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
@@ -77,9 +77,8 @@
                 <DataGrid  x:Name="detailsDataGrid"   CanUserAddRows="False" SelectionUnit="Cell" Margin="10,2,10,52" Grid.Column="1" Grid.Row="2" SelectionMode="Extended" Grid.RowSpan="10" FontWeight="Bold" FontSize="16" >
                     <DataGrid.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="Azure"/>
-
-                            <GradientStop Color="White" Offset="1"/>
+                            <GradientStop Color="#FFA3A5FF" Offset="0"/>
+                            <GradientStop Color="#FFEDEFF3" Offset="1"/>
                         </LinearGradientBrush>
                     </DataGrid.Background>
                 </DataGrid>

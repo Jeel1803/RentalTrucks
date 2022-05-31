@@ -30,6 +30,8 @@ namespace DAD.Views
             InitializeComponent();
 
             isEditable(false);
+            errorLabel.Visibility = Visibility.Hidden;
+
             ed = DAO.fetchPersonalInfo().FirstOrDefault();
 
 
@@ -82,26 +84,38 @@ namespace DAD.Views
 
         private void updateButton_Click(object sender, RoutedEventArgs e)
         {
-            string name = nameTextBox.Text;
-            string address = addressTextBox.Text;
-            string telephone = telephoneTextBox.Text;
-            string officeAddress = officeAddressTextBox.Text;
-            string phoneExt = phoneExtTextBox.Text;
-            string username = usernameTextBox.Text;
-            string password = passwordTextBox.Text;
-            string role = roleComboBox.Text;
+            int output = DAO.validEmptyInput(formGrid);
+            if (output != 0)
+            {
+                errorLabel.Visibility = Visibility.Visible;
+
+            }
+            else
+            {
+                string name = nameTextBox.Text;
+                string address = addressTextBox.Text;
+                string telephone = telephoneTextBox.Text;
+                string officeAddress = officeAddressTextBox.Text;
+                string phoneExt = phoneExtTextBox.Text;
+                string username = usernameTextBox.Text;
+                string password = passwordTextBox.Text;
+                string role = roleComboBox.Text;
 
 
-            ed.Name = name;
-            ed.Address = address;
-            ed.Telephone = telephone;
-            ed.OfficeAddress = officeAddress;
-            ed.PhoneExtensionNumber = phoneExt;
-            ed.Password = password;
-            List<EmployeeDetails> emp = new();
-            emp.Add(ed);
-            DAO.updatePesonal(emp);
-            MessageBox.Show("Updated Successfully");
+                ed.Name = name;
+                ed.Address = address;
+                ed.Telephone = telephone;
+                ed.OfficeAddress = officeAddress;
+                ed.PhoneExtensionNumber = phoneExt;
+                ed.Password = password;
+                List<EmployeeDetails> emp = new();
+                emp.Add(ed);
+                DAO.updatePesonal(emp);
+                MessageBox.Show("Updated Successfully");
+                isEditable(false);
+                errorLabel.Visibility = Visibility.Hidden;
+                FilledComboBoxEnabledCheckBox.IsChecked = false;
+            }
         }
     }
 }

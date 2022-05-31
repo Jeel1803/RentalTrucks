@@ -31,7 +31,7 @@ namespace DAD
             InitializeComponent();
             ed = DAO.fetchPersonalInfo().FirstOrDefault();
 
-            greetingLabel.Content = ( " Kia Ora, " + ed.Name + " \n" + "Welcome to the NZ Truck Rentals ");
+            greetingLabel.Content = ( " Kia  Ora  ,  " + ed.Name + " \n" + "Welcome   to   the   NZ   Truck   Rentals ");
 
            
             
@@ -69,27 +69,20 @@ namespace DAD
         private void perosnalDetails_Click(object sender, RoutedEventArgs e)
         {
             mainPanel.Children.Clear();
-            mainPanel.Children.Add(new ViewPersonalDetailsUC());
-        
-    }
-
-        private void login_Click(object sender, RoutedEventArgs e)
-        {
-            Login login = new Login();
-            login.Show();
-            this.Hide();
-
-        }
-
-        private void ShowButton_Click(object sender, RoutedEventArgs e)
-        {
-          
-        }
+            mainPanel.Children.Add(new ViewPersonalDetailsUC();
+         }
 
         private void customerDetails_Click(object sender, RoutedEventArgs e)
         {
             mainPanel.Children.Clear();
             mainPanel.Children.Add(new ViewAndUpdateCustomerInformation());
+        }
+
+        private void logout_Click(object sender, RoutedEventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Hide();
         }
     }
 

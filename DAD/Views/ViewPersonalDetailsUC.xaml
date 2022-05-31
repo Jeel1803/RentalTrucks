@@ -8,19 +8,22 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
                          d:DesignHeight="450" d:DesignWidth="800">
 
-    <Grid Name="formGrid"  Width="auto" Height="auto" Margin="0 , 50 , 0, 0 "  Background="Azure">
+    <Grid   Width="auto" Height="auto" Margin="0 , 50 , 0, 0 "  Background="Azure">
         <StackPanel >
             <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40*"/>
+                    <RowDefinition Height="14*"/>
+                </Grid.RowDefinitions>
                 <TextBlock Text="Personal Information"  VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Width="auto"  />
+                <Label Name="errorLabel" Grid.Row="1"  Content="Highlighted fields are Required" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,8,0,0" Foreground="Red" Grid.RowSpan="2" FontWeight="Bold"/>
+
             </Grid >
         </StackPanel>
 
         <StackPanel>
 
-            <Grid Margin='0,50 , 0, 0'>
+            <Grid Name="formGrid" Margin='0,70, 0, 0'>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*" />

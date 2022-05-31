@@ -37,6 +37,7 @@ namespace DAD.Views
             errorLabel.Visibility = Visibility.Hidden;
             usernameTextBox.IsEnabled = false;
             roleComboBox.IsEnabled = false;
+            detailsDataGrid.Visibility = Visibility.Hidden;
         }
         private void isAdmin(bool v)
         {
@@ -127,24 +128,15 @@ namespace DAD.Views
             idComboBox.SelectedValuePath = "EmployeeId";
         }
 
-        private void searchCustomerButton_Click(object sender, RoutedEventArgs e)
-        {
-            isVisibleIDInputs(true);
-            idComboBox.ItemsSource = DAO.GetCustomerID();
-            idComboBox.DisplayMemberPath = "CustomerId";
-            idComboBox.SelectedValuePath = "CustomerId";
-
-        }
+        
 
 
 
-        private void searchAllCustomerButton_Click(object sender, RoutedEventArgs e)
-        {
-            detailsDataGrid.ItemsSource = DAO.GetCustomer();
-        }
+        
 
         private void searchAllEmployeeButton_Click(object sender, RoutedEventArgs e)
         {
+            detailsDataGrid.Visibility = Visibility.Visible;
             detailsDataGrid.ItemsSource = DAO.GetEmployee();    
         }
 
