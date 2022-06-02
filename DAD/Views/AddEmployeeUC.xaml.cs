@@ -92,7 +92,7 @@ namespace DAD.Views
                 {
                     
                         usernameErrorLabel.Visibility = Visibility.Visible;
-                    usernameTextBox.BorderBrush = Brushes.Red;
+                        usernameTextBox.BorderBrush = Brushes.Red;
                 }
 
                 

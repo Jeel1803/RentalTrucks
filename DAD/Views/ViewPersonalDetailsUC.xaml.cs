@@ -42,8 +42,7 @@ namespace DAD.Views
             phoneExtTextBox.Text = ed.PhoneExtensionNumber;
             usernameTextBox.Text = ed.Username;
             passwordTextBox.Text = ed.Password;
-            roleComboBox.SelectedIndex = ed.Role.IndexOf(ed.Role);
-
+            roleComboBox.Text = ed.Role;
 
 
         }

@@ -122,6 +122,8 @@ namespace DAD.Views
             private void searchEmployeeButton_Click(object sender, RoutedEventArgs e)
         {
             isVisibleIDInputs(true);
+            isVisibleEmployeeFields(false);
+
             count = 1;
             idComboBox.ItemsSource = DAO.GetEmployeeID();
             idComboBox.DisplayMemberPath = "EmployeeId";

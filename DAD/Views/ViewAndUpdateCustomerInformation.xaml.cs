@@ -43,7 +43,7 @@ namespace DAD.Views
                 telephoneTextBox.Visibility = Visibility.Visible;
                 ageTextBox.Visibility = Visibility.Visible;
                 lcTextBox.Visibility = Visibility.Visible;
-                expiryTextBox.Visibility = Visibility.Visible;
+                expiryDatePicker.Visibility = Visibility.Visible;
                 updateButoon.Visibility = Visibility.Visible;
 
 
@@ -57,7 +57,7 @@ namespace DAD.Views
                 telephoneTextBox.Visibility = Visibility.Hidden;
                 ageTextBox.Visibility = Visibility.Hidden;
                 lcTextBox.Visibility = Visibility.Hidden;
-                expiryTextBox.Visibility = Visibility.Hidden;
+                expiryDatePicker.Visibility = Visibility.Hidden;
                 updateButoon.Visibility = Visibility.Hidden;
 
 
@@ -98,7 +98,7 @@ namespace DAD.Views
                     nameTextBox.Text = p.Name;
                     ageTextBox.Text = p.TruckCustomer.Age.ToString();
                     lcTextBox.Text = p.TruckCustomer.LicenseNumber;
-                    expiryTextBox.Text = p.TruckCustomer.LicenseExpiryDate.ToString();
+                    expiryDatePicker.Text = p.TruckCustomer.LicenseExpiryDate.ToString();
 
                 }
 
@@ -139,7 +139,7 @@ namespace DAD.Views
                 string telephone = telephoneTextBox.Text;
                 int age = int.Parse(ageTextBox.Text);
                 string lc = lcTextBox.Text;
-                //string date = DatePicker.selecteddate.value.date(expiryTextBox.Text);
+                DateTime date = expiryDatePicker.SelectedDate.Value.Date;
                 if (ed != null)
                 {
                     ed.Name = name;
@@ -147,6 +147,7 @@ namespace DAD.Views
                     ed.Telephone = telephone;
                     ed.TruckCustomer.Age = age;
                     ed.TruckCustomer.LicenseNumber = lc;
+                    ed.TruckCustomer.LicenseExpiryDate = date;
                     DAO.updateCustomerRecord(ed);
                     MessageBox.Show("Customer Updated");
                 }

@@ -51,7 +51,8 @@ namespace DAD.Views
             {
                 int id = int.Parse(idComboBox.Text);
                 idComboBox.BorderBrush = Brushes.Black;
-                 customerDataGrid.ItemsSource = DAO.getPeople(id);
+                customerDataGrid.Visibility = Visibility.Visible;
+                customerDataGrid.ItemsSource = DAO.getPeople(id);
                 errorLabel.Visibility = Visibility.Hidden;
 
             }

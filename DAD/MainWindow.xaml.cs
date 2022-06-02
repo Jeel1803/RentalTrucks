@@ -69,7 +69,7 @@ namespace DAD
         private void perosnalDetails_Click(object sender, RoutedEventArgs e)
         {
             mainPanel.Children.Clear();
-            mainPanel.Children.Add(new ViewPersonalDetailsUC();
+            mainPanel.Children.Add(new ViewPersonalDetailsUC()); 
          }
 
         private void customerDetails_Click(object sender, RoutedEventArgs e)
