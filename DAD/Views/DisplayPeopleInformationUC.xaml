@@ -29,7 +29,7 @@
         <materialDesign:Badged
   x:Name="CountingBadge"
   BadgeColorZoneMode="PrimaryDark" HorizontalAlignment="Center" Height="0" Width="0"/>
-                <DataGrid Margin='0,150 , 0, 0'  Grid.Row="2" BorderThickness="1" x:Name="customerDataGrid" 
+                <DataGrid IsReadOnly="True" Margin='0,150 , 0, 0'  Grid.Row="2" BorderThickness="1" x:Name="customerDataGrid" 
           CanUserAddRows="False"
                   
           SelectionUnit="Cell"

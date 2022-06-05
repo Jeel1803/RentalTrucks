@@ -15,11 +15,11 @@
     Background="{DynamicResource PrimaryHueMidBrush}"
     Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" >
                 <MenuItem x:Name="addEmployee"
-      Header="Add New Employee"
+      Header="Add New Employee" 
       Background="{DynamicResource SecondaryHueMidBrush}"
       Foreground="{DynamicResource SecondaryHueMidForegroundBrush}" Click="MenuItem_Click"/>
                 <MenuItem Name="peopleInformation"
-      Header="View and Update People Information"
+      Header="View People Information"
       Background="{DynamicResource SecondaryHueMidBrush}"
       Foreground="{DynamicResource SecondaryHueMidForegroundBrush}" Click="peopleInformation_Click"/>
                 <MenuItem  Name="viewAndUpdateCustomerEmployee" 

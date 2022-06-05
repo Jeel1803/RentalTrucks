@@ -68,7 +68,7 @@
                 <TextBox x:Name="lcTextBox" materialDesign:HintAssist.Hint="License Number" Margin="10,2" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center"  Grid.Column="0" Grid.Row="7"   />
                 <DatePicker x:Name="expiryDatePicker"  materialDesign:HintAssist.Hint="License Expiry Date"  Margin="10,2"  Style="{StaticResource MaterialDesignFilledDatePicker}" VerticalAlignment="Center" Grid.Column="0" Grid.Row="8"  />
                 <Button MaxWidth="500"  x:Name="updateButoon" Grid.Row="11" Grid.Column="0" Style="{StaticResource MaterialDesignRaisedLightButton}" Click="updateButoon_Click" Content="Update Record"  Margin=" 20, 10"/>
-                <DataGrid x:Name="detailsDataGrid"  CanUserAddRows="False" SelectionUnit="Cell" Margin="10,2,10,52" Grid.Column="1" Grid.Row="2" SelectionMode="Extended" Grid.RowSpan="10" FontWeight="Bold" FontSize="16" >
+                <DataGrid x:Name="detailsDataGrid"  IsReadOnly="True"  CanUserAddRows="False" SelectionUnit="Cell" Margin="10,2,10,52" Grid.Column="1" Grid.Row="2" SelectionMode="Extended" Grid.RowSpan="10" FontWeight="Bold" FontSize="16" >
                     <DataGrid.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FFA3A5FF" Offset="0"/>
