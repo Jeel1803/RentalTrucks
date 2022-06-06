@@ -38,7 +38,7 @@
                     <RowDefinition Height="2*"/>
                 </Grid.RowDefinitions>
 
-                <CheckBox x:Name="FilledComboBoxEnabledCheckBox" IsChecked="False" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="1" Content="Enabled" Checked="FilledComboBoxEnabledCheckBox_Checked" />
+                <CheckBox x:Name="FilledComboBoxEnabledCheckBox" IsChecked="False" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="1" Content="Enabled" Unchecked="FilledComboBoxEnabledCheckBox_Unchecked" Checked="FilledComboBoxEnabledCheckBox_Checked" />
                 <TextBox x:Name="nameTextBox" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="0" Grid.Row="2" materialDesign:HintAssist.Hint="Name" Margin="10,10,10,17"/>
                 <TextBox x:Name="addressTextBox" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="0" Grid.Row="3" materialDesign:HintAssist.Hint="Address"   Margin="10,10,10,17"/>
                 <TextBox x:Name="telephoneTextBox" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="0" Grid.Row="4" materialDesign:HintAssist.Hint="Telephone"  Margin="10,10,10,17"/>

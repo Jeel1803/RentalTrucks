@@ -45,7 +45,19 @@ namespace DAD.Views
             roleComboBox.Text = ed.Role;
 
 
+            if(FilledComboBoxEnabledCheckBox.IsChecked == true)
+            {
+                isEditable(true);
+            }
+            else
+            {
+                isEditable(false);
+            }
+
+
         }
+
+       
 
         private void isEditable(bool v)
         {
@@ -56,7 +68,7 @@ namespace DAD.Views
                 telephoneTextBox.IsEnabled = true;
                 officeAddressTextBox.IsEnabled = true;
                 phoneExtTextBox.IsEnabled = true;
-                usernameTextBox.IsEnabled = true;
+                usernameTextBox.IsEnabled = false;
                 passwordTextBox.IsEnabled = true;
                 roleComboBox.IsEnabled = false;
                 updateButton.IsEnabled = true;
@@ -79,6 +91,8 @@ namespace DAD.Views
         private void FilledComboBoxEnabledCheckBox_Checked(object sender, RoutedEventArgs e)
         {
             isEditable(true);
+
+            
         }
 
         private void updateButton_Click(object sender, RoutedEventArgs e)
@@ -115,6 +129,11 @@ namespace DAD.Views
                 errorLabel.Visibility = Visibility.Hidden;
                 FilledComboBoxEnabledCheckBox.IsChecked = false;
             }
+        }
+
+        private void FilledComboBoxEnabledCheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            isEditable(false);
         }
     }
 }

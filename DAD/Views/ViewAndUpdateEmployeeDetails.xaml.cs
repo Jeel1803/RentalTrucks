@@ -51,7 +51,7 @@ namespace DAD.Views
                 officeAddressTextBox.IsEnabled = true;
                 phoneExtTextBox.IsEnabled = true;
                 officeAddressTextBox.IsEnabled = true;
-                usernameTextBox.IsEnabled = true;
+                usernameTextBox.IsEnabled = false;
                 passwordTextBox.IsEnabled = true;
                 roleComboBox.IsEnabled = true;
                 updateButoon.IsEnabled = true;
@@ -175,6 +175,7 @@ namespace DAD.Views
                         ed.TruckEmployee.Role = roleComboBox.Text;
                         DAO.updateEmployeeRecord(ed);
                         MessageBox.Show("Updated Successfully");
+                        isVisibleEmployeeFields(false);
                     }
                 }
 

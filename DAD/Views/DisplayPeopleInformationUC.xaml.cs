@@ -70,5 +70,7 @@ namespace DAD.Views
         {
             searchCustomerButton.Visibility = Visibility.Visible;
         }
+
+        
     }
 }

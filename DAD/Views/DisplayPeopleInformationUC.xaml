@@ -29,12 +29,8 @@
         <materialDesign:Badged
   x:Name="CountingBadge"
   BadgeColorZoneMode="PrimaryDark" HorizontalAlignment="Center" Height="0" Width="0"/>
-                <DataGrid IsReadOnly="True" Margin='0,150 , 0, 0'  Grid.Row="2" BorderThickness="1" x:Name="customerDataGrid" 
-          CanUserAddRows="False"
-                  
-          SelectionUnit="Cell"
-          SelectionMode="Extended" FontWeight="Bold" FontSize="16" >
-                    <DataGrid.Background>
+                <DataGrid IsReadOnly="True" Height="500" ScrollViewer.CanContentScroll="True" ScrollViewer.IsDeferredScrollingEnabled="True" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin='0,150 , 0, 0'  Grid.Row="2" BorderThickness="1" x:Name="customerDataGrid" CanUserAddRows="False" SelectionUnit="Cell" SelectionMode="Extended" FontWeight="Bold" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+                   <DataGrid.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FFA3A5FF" Offset="0"/>
                             <GradientStop Color="#FFEDEFF3" Offset="1"/>

@@ -150,6 +150,7 @@ namespace DAD.Views
                     ed.TruckCustomer.LicenseExpiryDate = date;
                     DAO.updateCustomerRecord(ed);
                     MessageBox.Show("Customer Updated");
+                    isFieldVisible(false);
                 }
             }
         }
