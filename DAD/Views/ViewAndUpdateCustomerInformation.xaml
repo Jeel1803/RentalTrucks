@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
              xmlns:local="clr-namespace:DAD.Views"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DesignHeight="650.373" d:DesignWidth="800"
              >
@@ -66,7 +67,7 @@
                 <TextBox x:Name="telephoneTextBox" materialDesign:HintAssist.Hint="Telephone" Margin="10,2" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Grid.Column="0" Grid.Row="5"  />
                 <TextBox x:Name="ageTextBox" materialDesign:HintAssist.Hint="Age" Margin="10,2" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Grid.Column="0" Grid.Row="6"    />
                 <TextBox x:Name="lcTextBox" materialDesign:HintAssist.Hint="License Number" Margin="10,2" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center"  Grid.Column="0" Grid.Row="7"   />
-                <DatePicker x:Name="expiryDatePicker"  materialDesign:HintAssist.Hint="License Expiry Date"  Margin="10,2"  Style="{StaticResource MaterialDesignFilledDatePicker}" VerticalAlignment="Center" Grid.Column="0" Grid.Row="8"  />
+                <DatePicker x:Name="expiryDatePicker" DisplayDateStart="{x:Static sys:DateTime.Today}"  materialDesign:HintAssist.Hint="License Expiry Date"  Margin="10,2"  Style="{StaticResource MaterialDesignFilledDatePicker}" VerticalAlignment="Center" Grid.Column="0" Grid.Row="8"  />
                 <Button MaxWidth="500"  x:Name="updateButoon" Grid.Row="11" Grid.Column="0" Style="{StaticResource MaterialDesignRaisedLightButton}" Click="updateButoon_Click" Content="Update Record"  Margin=" 20, 10"/>
                 <DataGrid Height="350" x:Name="detailsDataGrid" ScrollViewer.CanContentScroll="True" ScrollViewer.IsDeferredScrollingEnabled="True" ScrollViewer.VerticalScrollBarVisibility="Auto" IsReadOnly="True"  CanUserAddRows="False" SelectionUnit="Cell" Margin="10,2,10,52" Grid.Column="1" Grid.Row="2" SelectionMode="Extended" Grid.RowSpan="10" FontWeight="Bold" FontSize="16" >
                     <DataGrid.Background>
